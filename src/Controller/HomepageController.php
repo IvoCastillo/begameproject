@@ -13,12 +13,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomepageController extends AbstractController
 {
     /**
-     * @Route("/rookie/homepage", name="homepage")
+     * @Route("/homepage", name="homepage")
      * @param Request $request
+     * @param User $user
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(Request $request)
     {
+        if(in_array("ROLE_ADVANCED", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("profile_page");
+        }
         /* @var Team $team
          */
         $user = $this->getUser();
