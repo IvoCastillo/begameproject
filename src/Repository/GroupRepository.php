@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Group;
+use App\Entity\Team;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method Group|null find($id, $lockMode = null, $lockVersion = null)
- * @method Group|null findOneBy(array $criteria, array $orderBy = null)
- * @method Group[]    findAll()
- * @method Group[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Team|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Team|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Team[]    findAll()
+ * @method Team[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class GroupRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Group::class);
+        parent::__construct($registry, Team::class);
     }
 
     // /**
-    //  * @return Group[] Returns an array of Group objects
+    //  * @return Team[] Returns an array of Team objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class GroupRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Group
+    public function findOneBySomeField($value): ?Team
     {
         return $this->createQueryBuilder('g')
             ->andWhere('g.exampleField = :val')

@@ -46,7 +46,7 @@ class User implements UserInterface
     private $correctAnswer;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Group", inversedBy="user")
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="user")
      */
     private $team;
 
@@ -147,12 +147,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getTeam(): ?Group
+    public function getTeam(): ?Team
     {
         return $this->team;
     }
 
-    public function setTeam(?Group $team): self
+    public function setTeam(?Team $team): self
     {
         $this->team = $team;
 

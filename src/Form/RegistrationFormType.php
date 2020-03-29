@@ -2,11 +2,14 @@
 
 namespace App\Form;
 
+use App\Entity\Team;
 use App\Entity\User;
+use Symfony\Component\DomCrawler\Field\TextareaFormField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -37,6 +40,9 @@ class RegistrationFormType extends AbstractType
                 'expanded' => true,
                 'multiple' => false,
             ])
+            ->add('randomField', TextareaType::class, array(
+                "mapped" => false,
+            ))
         ;
     }
 
