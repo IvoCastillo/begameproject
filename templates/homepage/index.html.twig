@@ -19,9 +19,10 @@
 
     {% for team in teams %}
         {% set form = team['form'].createView %}
-        {{ form_start(form) }}
+        {{ form_start(form)  }}
         {{ team['teamName'] }}
         {{ form_end(form) }}
     {% endfor %}
 
 {% endblock %}
+{#{'action': path('joinGroup'), 'method': 'POST'}#}

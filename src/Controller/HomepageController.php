@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Team;
+use App\Entity\User;
 use App\Form\JoinTeamType;
-use http\Env\Request;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -12,13 +14,14 @@ class HomepageController extends AbstractController
 {
     /**
      * @Route("/homepage", name="homepage")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         /* @var Team $team
          */
         $user = $this->getUser();
-        var_dump($user);
         $allTeams = $this->getDoctrine()->getRepository(Team::class)->findAll();
         $teams = [];
         foreach ($allTeams as $team) {
@@ -29,9 +32,26 @@ class HomepageController extends AbstractController
         }
 
 
+        /* @var User $user
+         * @var Team $clickedTeam
+         */
+            $teams[0]['form']->handleRequest($request);
+            if ($teams[0]['form']->isSubmitted()) {
+
+                $clickedTeamName = $teams[0]['form']->get('team')->getData();
+                $clickedTeam = $this->getDoctrine()->getRepository(Team::class)->findOneBy(['teamName' => $clickedTeamName]);
+
+                $user->setTeam($clickedTeam);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
+            }
+
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
             'teams' => $teams,
         ]);
     }
+
+
 }
