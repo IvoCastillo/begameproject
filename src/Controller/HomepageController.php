@@ -15,7 +15,6 @@ class HomepageController extends AbstractController
     /**
      * @Route("/homepage", name="homepage")
      * @param Request $request
-     * @param User $user
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(Request $request)
@@ -24,7 +23,8 @@ class HomepageController extends AbstractController
         if(in_array("ROLE_ADVANCED", $this->getUser()->getRoles())) {
             return $this->redirectToRoute("profile_page");
         }
-        /* @var Team $team
+        /*
+         *  @var Team $team
          */
         $user = $this->getUser();
         $allTeams = $this->getDoctrine()->getRepository(Team::class)->findAll();

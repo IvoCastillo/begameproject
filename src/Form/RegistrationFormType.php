@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Team;
 use App\Entity\User;
+use Doctrine\ORM\Mapping\UniqueConstraint;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\DomCrawler\Field\TextareaFormField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -15,6 +17,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Unique;
+use Symfony\Component\Validator\Constraints\UniqueValidator;
 
 class RegistrationFormType extends AbstractType
 {
@@ -44,6 +48,13 @@ class RegistrationFormType extends AbstractType
                 "mapped" => false,
                 "label" => false,
                 "required" => false,
+//                'constraints' => [
+//                    new UniqueEntity([
+//                        'fields' => ['teamName', 'teamName'],
+//                        'errorPath' => 'port',
+//                        'message' => 'This port is already in use on that host.',
+//                        ]),
+//                    ],
             ))
         ;
     }

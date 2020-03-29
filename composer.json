@@ -28,7 +28,8 @@
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
         "symfony/yaml": "5.0.*",
-      "ext-http": "*"
+      "ext-http": "*",
+      "ext-pdo": "1.0"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

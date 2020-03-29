@@ -27,10 +27,12 @@ class ProfilePageController extends AbstractController
 
         $allTeams = $this->getDoctrine()->getRepository(Team::class)->findAll();
         for($i = 0; $i < count($allTeams); $i++) {
-            $allTeamScores[] = $allTeams[$i]->getTeamScore();
+            $allTeamScores[] = [
+                'teamScore' => $allTeams[$i]->getTeamScore(),
+                'teamName' => $allTeams[$i]->getTeamName(),
+                ];
         }
         rsort($allTeamScores);
-
         return $this->render('profile_page/index.html.twig', [
             'teamName' => $teamname,
             'userName' => $userName,

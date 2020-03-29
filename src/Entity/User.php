@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -16,6 +18,7 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     *
      */
     private $id;
 
@@ -158,4 +161,11 @@ class User implements UserInterface
 
         return $this;
     }
+//    public static function loadValidatorMetadata(ClassMetadata $metadata)
+//    {
+//        $metadata->addConstraint(new UniqueEntity([
+//            'fields' => 'teamName',
+//        ]));
+//
+//    }
 }

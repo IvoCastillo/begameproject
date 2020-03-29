@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Team;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use Doctrine\DBAL\DBALException;
+use PDOException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,32 +45,37 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
 
             //Create a new group, if the group field is filled in
-            if (!$form->get('randomField')->getData() == null){
-                $group = new Team();
-                $newTeamName = $form->get('randomField')->getData();
-                $group->setTeamName($newTeamName);
-                $group->setTeamScore('0');
-                $user->setTeam($group);
-                $entityManager->persist($group);
+            if (!$form->get('randomField')->getData() == null) {
+                try {
+                    $group = new Team();
+                    $newTeamName = $form->get('randomField')->getData();
+                    $group->setTeamName($newTeamName);
+                    $group->setTeamScore('0');
+                    $user->setTeam($group);
+                    $entityManager->persist($group);
+                    $entityManager->persist($user);
+                    $entityManager->flush();
+                //This is for duplicate teamnames
+                // TODO: deftigen error schrijven
+                } catch (DBALException $e){
+                    return $this->redirectToRoute('app_register');
+                }
+            } else {
+                $entityManager->persist($user);
+                $entityManager->flush();
             }
 
-            var_dump($form->get('randomField')->getData());
-
-            $entityManager->persist($user);
-            $entityManager->flush();
 
             // do anything else you need here, like send an email
-
 
 
             return $this->redirectToRoute('app_login');
         }
 
-        return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form->createView(),
-        ]);
+            return $this->render('registration/register.html.twig', [
+                'registrationForm' => $form->createView(),
+            ]);
+        }
+
+
     }
-
-
-
-}

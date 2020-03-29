@@ -19,7 +19,7 @@
     <h3>High Score</h3>
     <ul>
     {% for i in 0..2 %}
-        <li>{{ topScores[i] }}</li>
+        <li>{{ topScores[i]['teamName']}} with {{ topScores[i]['teamScore'] }}points</li>
     {% endfor %}
     </ul>
 
