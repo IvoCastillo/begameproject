@@ -22,8 +22,8 @@ class RegistrationFormType extends AbstractType
             // Set various options for the radio buttons
             ->add('roles', ChoiceType::class, [
                 'choices' => [
-                    'rookie' => ['ROLE_ROOKIE'],
-                    'advanced' => ['ROLE_ADVANCED'],
+                    'rookie' => 'ROLE_ROOKIE',
+                    'advanced' => 'ROLE_ADVANCED',
                 ],
                 'choice_label' => function($choice) {
                     // only way to get proper labels on the radio buttons

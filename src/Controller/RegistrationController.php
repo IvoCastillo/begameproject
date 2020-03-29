@@ -30,6 +30,10 @@ class RegistrationController extends AbstractController
                     $form->get('username')->getData()
                 )
             );
+            // Set roles to selected and set score to 0
+            $user->setRoles(array($form->get('roles')->getData()));
+            $user->setScore(0);
+            $user->setCorrectAnswer(0);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -37,7 +41,7 @@ class RegistrationController extends AbstractController
 
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('');
+            return $this->redirectToRoute('/');
         }
 
         return $this->render('registration/register.html.twig', [
