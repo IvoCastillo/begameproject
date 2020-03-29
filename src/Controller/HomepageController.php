@@ -19,6 +19,10 @@ class HomepageController extends AbstractController
      */
     public function index(Request $request)
     {
+
+        if (in_array("ROLE_ADVANCED", $this->getUser()->getRoles())){
+            var_dump('uwmoeder');
+        }
         /* @var Team $team
          */
         $user = $this->getUser();
