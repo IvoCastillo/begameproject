@@ -40,16 +40,20 @@ class RegistrationController extends AbstractController
             $user->setScore(0);
             $user->setCorrectAnswer(0);
 
+            $entityManager = $this->getDoctrine()->getManager();
+
             //Create a new group, if the group field is filled in
-            $group = new Team();
-            $newTeamName = $form->get('randomField')->getData();
-            $group->setTeamName($newTeamName);
-            $group->setTeamScore('0');
-            $user->setTeam($group);
+            if (!$form->get('randomField')->getData() == null){
+                $group = new Team();
+                $newTeamName = $form->get('randomField')->getData();
+                $group->setTeamName($newTeamName);
+                $group->setTeamScore('0');
+                $user->setTeam($group);
+                $entityManager->persist($group);
+            }
+
             var_dump($form->get('randomField')->getData());
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($group);
             $entityManager->persist($user);
             $entityManager->flush();
 

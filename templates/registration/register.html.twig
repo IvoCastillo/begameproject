@@ -6,9 +6,24 @@
     <h1>Register</h1>
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.roles) }}
-        <button class="btn">Register</button>
+    {{ form_row(registrationForm.username) }}
+    {{ form_row(registrationForm.roles) }}
+    <button class="btn">Register</button>
     {{ form_end(registrationForm) }}
 
+    <script>
+        (function myFunc() {
+            let rookieCheckBox = document.getElementById('registration_form_roles_0');
+            let advancedCheckBox = document.getElementById('registration_form_roles_1');
+
+            let teamField = document.getElementById('registration_form_randomField');
+            teamField.style.display = "none";
+            advancedCheckBox.addEventListener("click", function () {
+                teamField.style.display = "block";
+            });
+            rookieCheckBox.addEventListener("click", function () {
+                teamField.style.display = "none";
+            });
+        })();
+    </script>
 {% endblock %}

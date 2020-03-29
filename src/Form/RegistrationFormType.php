@@ -42,6 +42,8 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('randomField', TextareaType::class, array(
                 "mapped" => false,
+                "label" => false,
+                "required" => false,
             ))
         ;
     }
