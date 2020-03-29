@@ -17,8 +17,6 @@
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputUsername">Username</label>
     <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -38,6 +36,6 @@
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
-    <button> <a href="{{ path('app_register') }}">Register</a> </button>
+    <button> <a href="{{ path('app_register') }}">Register here</a> </button>
 </form>
 {% endblock %}
