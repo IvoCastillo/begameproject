@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomepageController extends AbstractController
 {
     /**
-     * @Route("/homepage", name="homepage")
+     * @Route("/rookie/homepage", name="homepage")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -45,6 +45,8 @@ class HomepageController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($user);
                 $entityManager->flush();
+
+                return $this->redirectToRoute('profile_page');
             }
 
         return $this->render('homepage/index.html.twig', [
