@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Question;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminOverviewController extends AbstractController
@@ -13,9 +14,9 @@ class AdminOverviewController extends AbstractController
      */
     public function index()
     {
-        $questions = $this->getDoctrine()->getRepository(Question::class)->findAll();
+        $questions = $this->getDoctrine()->getRepository(Question::class)->findAsArray();
 
-
+        return new JsonResponse(($questions));
         return $this->render('admin_overview/index.html.twig', [
             'controller_name' => 'AdminOverviewController',
             'questions' => $questions,

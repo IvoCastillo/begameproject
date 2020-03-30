@@ -19,6 +19,17 @@ class QuestionRepository extends ServiceEntityRepository
         parent::__construct($registry, Question::class);
     }
 
+    public function findAsArray()
+    {
+        return $this->createQueryBuilder('q')
+            ->join('q.answer', 'answers')
+            ->select('q, answers')
+            ->orderBy('q.id', 'ASC')
+            ->getQuery()
+            ->getArrayResult()
+            ;
+    }
+
     // /**
     //  * @return Question[] Returns an array of Question objects
     //  */
