@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QRcodeController!{% endblock %}
+
+{% block body %}
+
+    {% for question in allQuestions %}
+        {% set url = absolute_url(path('view_question',
+            {question: question.id})) %}
+            <img src="{{ qr_code_data_uri(url, { writer: 'svg', size: 150 }) }}" />
+    {% endfor %}
+
+
+{% endblock %}

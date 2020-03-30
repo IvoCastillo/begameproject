@@ -4,7 +4,10 @@
     "require": {
         "php": "^7.2.5",
         "ext-ctype": "*",
+        "ext-http": "*",
         "ext-iconv": "*",
+        "ext-pdo": "*",
+        "endroid/qr-code-bundle": "^3.4",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "5.0.*",
         "symfony/console": "5.0.*",
@@ -27,9 +30,7 @@
         "symfony/twig-pack": "*",
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
-        "symfony/yaml": "5.0.*",
-      "ext-http": "*",
-      "ext-pdo": "1.0"
+        "symfony/yaml": "5.0.*"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

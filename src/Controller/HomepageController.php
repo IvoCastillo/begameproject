@@ -20,14 +20,14 @@ class HomepageController extends AbstractController
     public function index(Request $request)
     {
 
-        if(in_array("ROLE_ADVANCED", $this->getUser()->getRoles())) {
+        if (in_array("ROLE_ADVANCED", $this->getUser()->getRoles())) {
             return $this->redirectToRoute("profile_page");
         }
         /*
          *  @var Team $team
          */
         $user = $this->getUser();
-        $allTeams = $this->getDoctrine()->getRepository(Team::class)->findAll();
+        $allTeams = $this->getDoctrine()->getRepository(Team::class)->findBy(['isLocked' => false]);
         $teams = [];
         foreach ($allTeams as $team) {
             $teams[] = [
@@ -40,6 +40,9 @@ class HomepageController extends AbstractController
         /* @var User $user
          * @var Team $clickedTeam
          */
+        if (!empty($teams)) {
+
+
             $teams[0]['form']->handleRequest($request);
             if ($teams[0]['form']->isSubmitted()) {
 
@@ -53,7 +56,7 @@ class HomepageController extends AbstractController
 
                 return $this->redirectToRoute('profile_page');
             }
-
+        }
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
             'teams' => $teams,

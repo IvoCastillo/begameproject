@@ -3,26 +3,45 @@
 {% block title %}Hello ProfilePageController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-    <h1>Hello {{userName}}. You are in the team: <b>{{ teamName }}</b></h1>
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
+
+        .example-wrapper code {
+            background: #F5F5F5;
+            padding: 2px 6px;
+        }
+    </style>
+    <h1>Hello {{ userName }}. You are in the team: <b>{{ teamName }}</b></h1>
     <h3>Your score</h3>
     <h3>{{ userScore }}</h3>
     <h3>Your team members</h3>
     <ul>
-    {% for member in allMembers %}
-    <li>{{ member }}</li>
-    {% endfor %}
+        {% for member in allMembers %}
+            <li>{{ member }}</li>
+        {% endfor %}
     </ul>
     <h3>High Score</h3>
     <ul>
-    {% for topScore in topScores %}
-        <li>{{ topScore['teamName']}} with {{ topScore['teamScore'] }}points</li>
-    {% endfor %}
+        {% for topScore in topScores %}
+            <li>{{ topScore['teamName'] }} with {{ topScore['teamScore'] }}points</li>
+        {% endfor %}
     </ul>
 
 
+    {% if is_granted('ROLE_ADVANCED') %}
+        <button><a href="{{ path('toggle_lock', {team:team.id}) }}">
+
+                Lock: {% if team.isLocked %}
+                    True
+                {% else %}
+                    False
+                {% endif %}
+            </a></button>
+    {% endif %}
 
 {% endblock %}

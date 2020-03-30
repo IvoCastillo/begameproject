@@ -23,6 +23,10 @@
         {{ team['teamName'] }}
         {{ form_end(form) }}
     {% endfor %}
+    {% if teams is empty %}
+        <p>There are no teams yet. Be patient, and refresh your browser.</p>
+        <button><a href="{{ path('homepage') }}">OR PRESS THIS BUTTON</a></button>
+    {% endif %}
 
 {% endblock %}
 {#{'action': path('joinGroup'), 'method': 'POST'}#}

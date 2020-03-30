@@ -38,6 +38,11 @@ class Team
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isLocked = false;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -106,5 +111,17 @@ class Team
     public function __toString()
     {
         return (string) $this->getTeamName();
+    }
+
+    public function getIsLocked(): ?bool
+    {
+        return $this->isLocked;
+    }
+
+    public function setIsLocked(bool $isLocked): self
+    {
+        $this->isLocked = $isLocked;
+
+        return $this;
     }
 }

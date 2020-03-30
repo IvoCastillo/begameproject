@@ -29,7 +29,7 @@ class AddQuestionController extends AbstractController
             $question = $form->getData();
             $em->persist($question);
             $em->flush();
-            return $this->redirectToRoute('add_question');
+            return $this->redirectToRoute('admin_overview');
         }
 
 
@@ -41,4 +41,5 @@ class AddQuestionController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
 }

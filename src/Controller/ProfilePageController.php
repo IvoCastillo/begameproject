@@ -40,6 +40,7 @@ class ProfilePageController extends AbstractController
             'allMembers' => $allMembers,
             'userScore' => $userScore,
             'topScores' => $allTeamScores,
+            'team' => $user->getTeam(),
         ]);
     }
 }
