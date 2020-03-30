@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddQuestionController!{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_row(form.question) }}
+    {{ form_row(form.category) }}
+    {{ form_row(form.answer) }}
+
+    <button type="submit">Submit</button>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

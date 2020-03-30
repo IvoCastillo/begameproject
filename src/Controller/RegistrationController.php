@@ -51,7 +51,6 @@ class RegistrationController extends AbstractController
                     $group = new Team();
                     $newTeamName = $form->get('randomField')->getData();
                     if ($this->getDoctrine()->getRepository(Team::class)->findOneBy(['teamName'=> $newTeamName])=== null){
-                       // return $this->redirectToRoute('app_register');
                         $group->setTeamName($newTeamName);
                         $group->setTeamScore('0');
                         $user->setTeam($group);
@@ -60,7 +59,6 @@ class RegistrationController extends AbstractController
                         $entityManager->flush();
                         return $this->redirectToRoute('app_login');
                     } else {
-                        echo 'neje';
                         $form->addError(new FormError('Dit werkt niet'));
                     }
 
@@ -69,6 +67,7 @@ class RegistrationController extends AbstractController
                 $entityManager->persist($user);
                 $entityManager->flush();
             }
+             return $this->redirectToRoute('app_login');
 
 
             // do anything else you need here, like send an email

@@ -2,23 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\Team;
 use App\Entity\User;
-use Doctrine\ORM\Mapping\UniqueConstraint;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\DomCrawler\Field\TextareaFormField;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\IsTrue;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Unique;
-use Symfony\Component\Validator\Constraints\UniqueValidator;
 
 class RegistrationFormType extends AbstractType
 {
@@ -44,7 +33,7 @@ class RegistrationFormType extends AbstractType
                 'expanded' => true,
                 'multiple' => false,
             ])
-            ->add('randomField', TextareaType::class, array(
+            ->add('randomField', TextType::class, array(
                 "mapped" => false,
                 "label" => false,
                 "required" => false,
