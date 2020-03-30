@@ -18,8 +18,8 @@
     </ul>
     <h3>High Score</h3>
     <ul>
-    {% for i in 0..2 %}
-        <li>{{ topScores[i]['teamName']}} with {{ topScores[i]['teamScore'] }}points</li>
+    {% for topScore in topScores %}
+        <li>{{ topScore['teamName']}} with {{ topScore['teamScore'] }}points</li>
     {% endfor %}
     </ul>
 

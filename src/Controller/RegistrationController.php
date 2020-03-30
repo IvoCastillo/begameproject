@@ -6,8 +6,10 @@ use App\Entity\Team;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use Doctrine\DBAL\DBALException;
+use http\Exception\RuntimeException;
 use PDOException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -46,20 +48,23 @@ class RegistrationController extends AbstractController
 
             //Create a new group, if the group field is filled in
             if (!$form->get('randomField')->getData() == null) {
-                try {
                     $group = new Team();
                     $newTeamName = $form->get('randomField')->getData();
-                    $group->setTeamName($newTeamName);
-                    $group->setTeamScore('0');
-                    $user->setTeam($group);
-                    $entityManager->persist($group);
-                    $entityManager->persist($user);
-                    $entityManager->flush();
-                //This is for duplicate teamnames
-                // TODO: deftigen error schrijven
-                } catch (DBALException $e){
-                    return $this->redirectToRoute('app_register');
-                }
+                    if ($this->getDoctrine()->getRepository(Team::class)->findOneBy(['teamName'=> $newTeamName])=== null){
+                       // return $this->redirectToRoute('app_register');
+                        $group->setTeamName($newTeamName);
+                        $group->setTeamScore('0');
+                        $user->setTeam($group);
+                        $entityManager->persist($group);
+                        $entityManager->persist($user);
+                        $entityManager->flush();
+                        return $this->redirectToRoute('app_login');
+                    } else {
+                        echo 'neje';
+                        $form->addError(new FormError('Dit werkt niet'));
+                    }
+
+
             } else {
                 $entityManager->persist($user);
                 $entityManager->flush();
@@ -69,7 +74,6 @@ class RegistrationController extends AbstractController
             // do anything else you need here, like send an email
 
 
-            return $this->redirectToRoute('app_login');
         }
 
             return $this->render('registration/register.html.twig', [

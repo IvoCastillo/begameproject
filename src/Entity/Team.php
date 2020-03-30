@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\GroupRepository")
  * @UniqueEntity(fields={"teamName"}, message = "nieje")
  */
-
 class Team
 {
     /**

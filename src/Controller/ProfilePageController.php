@@ -33,6 +33,7 @@ class ProfilePageController extends AbstractController
                 ];
         }
         rsort($allTeamScores);
+        $allTeamScores = array_slice($allTeamScores, 0, 3);
         return $this->render('profile_page/index.html.twig', [
             'teamName' => $teamname,
             'userName' => $userName,
