@@ -7,6 +7,7 @@ use App\Entity\Question;
 use App\Form\AddQuestionType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AddQuestionController extends AbstractController
@@ -14,7 +15,7 @@ class AddQuestionController extends AbstractController
     /**
      * @Route("/add/question", name="add_question")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function index(Request $request)
     {

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Question;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class RemoveQuestionController extends AbstractController
@@ -11,7 +12,7 @@ class RemoveQuestionController extends AbstractController
     /**
      * @Route("/remove/question/{question}", name="remove_question")
      * @param Question $question
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return RedirectResponse
      */
     public function index(Question $question)
     {

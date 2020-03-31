@@ -20,7 +20,6 @@ class ToggleLockController extends AbstractController
 
         if ($team->getIsLocked()) {
             $team->setIsLocked(false);
-
         } else {
             $team->setIsLocked(true);
         }
