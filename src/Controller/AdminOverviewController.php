@@ -16,7 +16,6 @@ class AdminOverviewController extends AbstractController
     {
         $questions = $this->getDoctrine()->getRepository(Question::class)->findAsArray();
 
-        return new JsonResponse(($questions));
         return $this->render('admin_overview/index.html.twig', [
             'controller_name' => 'AdminOverviewController',
             'questions' => $questions,

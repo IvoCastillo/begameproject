@@ -23,11 +23,9 @@ class AppFixtures extends Fixture
                 $newAnswer->setAnswer($a['answer']);
                 $newAnswer->setType($a['type']);
                 $manager->persist($newAnswer);
-
             }
             $manager->persist($question);
         }
-
         $manager->flush();
     }
 }

@@ -5,8 +5,11 @@
 {% block body %}
 <ul>
     {% for question in questions %}
-     <li>   {{ question.question }} <a href="{{ path('edit_question', {question:question.id}) }}">Edit Question</a> ,
-          <a href="{{ path('remove_question', {question:question.id}) }}">X</a>
+     <li>   {{ question.question }}
+          <a href="{{ path('edit_question', {question:question.id}) }}">
+               Edit Question</a> ,
+          <a href="{{ path('remove_question', {question:question.id}) }}">
+               X</a>
      </li>
 
 

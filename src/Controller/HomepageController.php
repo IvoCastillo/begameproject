@@ -15,7 +15,7 @@ class HomepageController extends AbstractController
     /**
      * @Route("/homepage", name="homepage")
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function index(Request $request)
     {
