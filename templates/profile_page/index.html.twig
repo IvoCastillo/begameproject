@@ -3,13 +3,12 @@
 {% block title %}Hello ProfilePageController!{% endblock %}
 
 {% block body %}
-    <h1>Hello {{ userName }}. You are in the team: <b>{{ teamName }}</b></h1>
-    <h3>Your score</h3>
-    <h3>{{ userScore }}</h3>
+    <h1>{{ userName }} </h1>
+    <h3>{{ teamName }} {{ megazorp }} </h3>
     <h3>Your team members</h3>
     <ul>
         {% for member in allMembers %}
-            <li>{{ member }}</li>
+            <li>{{ member.teamIvo }}  :  {{ member.scorez }}</li>
         {% endfor %}
     </ul>
     <h3>High Score</h3>

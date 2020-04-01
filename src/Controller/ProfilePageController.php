@@ -24,8 +24,14 @@ class ProfilePageController extends AbstractController
         $teamname = $user->getTeam();
         $userName = $user->getUsername();
         for($i = 0; $i < count($teamname->getUser()); $i++) {
-            $allMembers[] = $teamname->getUser()[$i]->getUsername();
+            $allMembers[] = [
+                'teamIvo' => $teamname->getUser()[$i]->getUsername(),
+                'scorez' => $teamname->getUser()[$i]->getScore()];
+            $justOneScore[] =
+                $teamname->getUser()[$i]->getScore();
         }
+        $teamScoreActivate = array_sum($justOneScore);
+
         $userScore = $user->getScore();
 
         $allTeams = $this->getDoctrine()->getRepository(Team::class)->findAll();
@@ -58,6 +64,7 @@ class ProfilePageController extends AbstractController
             'topScores' => $allTeamScores,
             'team' => $user->getTeam(),
             'timeDiff' => $timeDiff,
+            'megazorp' => $teamScoreActivate,
         ]);
     }
 }
