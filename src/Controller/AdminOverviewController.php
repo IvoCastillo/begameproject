@@ -17,32 +17,15 @@ class AdminOverviewController extends AbstractController
     public function index()
     {
 //Ivo was here
-        /**
-         * @var Team $teamExtreme
-         */
-        $allTeamNombres=[];
-        $allTeamPendejos=[];
-        $allTeamInfo = $this->getDoctrine()
-            ->getRepository(Team::class)
-            ->findAll();
-        foreach ($allTeamInfo as $teamExtreme)
-        {
-            array_push($allTeamNombres, $teamExtreme-> getTeamName());
 
-            foreach ($teamExtreme->getUser() as $pendejo ) {
-                array_push($allTeamPendejos, $pendejo->getUserName());
-            }
-        }
-
-
+        $allTeamPendejos = $this->getDoctrine()->getRepository(Team::class)->findAll();
 
         $questions = $this->getDoctrine()->getRepository(Question::class)->findAsArray();
 
         return $this->render('admin_overview/index.html.twig', [
             'controller_name' => 'AdminOverviewController',
+            'pendejos' => $allTeamPendejos,
             'questions' => $questions,
-            'smokeUser' => $smokeUserInfo,
-            'gangEffort' => $allTeamInfo,
         ]);
 
 

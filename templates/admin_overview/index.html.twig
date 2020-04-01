@@ -21,14 +21,12 @@
     <button><a href="{{ path('start_game') }}">Start Game!</a></button>
     <button id="startGame"><a href="{{ path('stop_game') }}">Stop Game!</a></button>
 
-
     <ul>
-        {% for love in gangEffort %}
-            <li> {{ love.teamName }}</li>
+        {% for team in pendejos %}
+            <li><p>{{ team.teamName }}</p></li>
             <ul>
-                {% for pgdrugs in smokeUser %}
-                    <li> {{ pgdrugs.username }}</li>
-
+                {% for user in team.user %}
+                    <li> {{ user.username }} {{ user.score }}</li>
                 {% endfor %}
             </ul>
         {% endfor %}
