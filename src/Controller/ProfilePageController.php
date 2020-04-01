@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Team;
+use App\Entity\Timer;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -10,6 +12,7 @@ class ProfilePageController extends AbstractController
 {
     /**
      * @Route("/profile", name="profile_page")
+     * @throws \Exception
      */
     public function index()
     {
@@ -34,6 +37,19 @@ class ProfilePageController extends AbstractController
         }
         rsort($allTeamScores);
         $allTeamScores = array_slice($allTeamScores, 0, 3);
+
+        if ($this->getDoctrine()->getRepository(Timer::class)->findAll()){
+            $endTimerDB = $this->getDoctrine()->getRepository(Timer::class)->findAll()[0];
+
+            $endTimer = new DateTime($endTimerDB->getTimer()->format('Y-m-d H:i:s'));
+            $currentTime = new DateTime(); //now
+            $currentTime->format('Y-m-d H:i:s');
+            $timeDiff = $currentTime->diff($endTimer)->invert;
+        } else {
+            $timeDiff = 1;
+        }
+
+
         return $this->render('profile_page/index.html.twig', [
             'teamName' => $teamname,
             'userName' => $userName,
@@ -41,6 +57,7 @@ class ProfilePageController extends AbstractController
             'userScore' => $userScore,
             'topScores' => $allTeamScores,
             'team' => $user->getTeam(),
+            'timeDiff' => $timeDiff,
         ]);
     }
 }
