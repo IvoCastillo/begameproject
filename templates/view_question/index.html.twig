@@ -3,6 +3,8 @@
 {% block title %}Hello ViewQuestionController!{% endblock %}
 
 {% block body %}
+    <button><a href="{{ path('add_question') }}">Add question</a></button>
+
     <ul>
         {% for question in allQuestions %}
             <li>   {{ question.question }}

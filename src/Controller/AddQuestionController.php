@@ -30,7 +30,7 @@ class AddQuestionController extends AbstractController
             $question = $form->getData();
             $em->persist($question);
             $em->flush();
-            return $this->redirectToRoute('admin_overview');
+            return $this->redirectToRoute('view_question');
         }
 
 
