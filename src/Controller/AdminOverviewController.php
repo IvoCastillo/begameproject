@@ -19,7 +19,7 @@ class AdminOverviewController extends AbstractController
 
         return $this->render('admin_overview/index.html.twig', [
             'controller_name' => 'AdminOverviewController',
-            'allTeams' => $allTeams,
+            'pendejos' => $allTeamPendejos,
         ]);
 
     }
