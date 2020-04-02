@@ -107,16 +107,16 @@ class Question
     /**
      * @return Collection|User[]
      */
-    public function getWronguser(): Collection
+    public function getUser(): Collection
     {
         return $this->wronguser;
     }
 
-    public function addWronguser(User $wronguser): self
+    public function addUser(User $user): self
     {
-        if (!$this->wronguser->contains($wronguser)) {
-            $this->wronguser[] = $wronguser;
-            $wronguser->addWrongQuestion($this);
+        if (!$this->wronguser->contains($user)) {
+            $this->wronguser[] = $user;
+            $user->addWrongQuestion($this);
         }
 
         return $this;
@@ -131,4 +131,5 @@ class Question
 
         return $this;
     }
+
 }
