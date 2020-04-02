@@ -2,11 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Question;
 use App\Entity\Team;
-use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminOverviewController extends AbstractController
@@ -23,8 +20,12 @@ class AdminOverviewController extends AbstractController
 
         return $this->render('admin_overview/index.html.twig', [
             'controller_name' => 'AdminOverviewController',
+<<<<<<< HEAD
             'questions' => $questions,
             'allTeams' => $allTeams,
+=======
+            'pendejos' => $allTeamPendejos,
+>>>>>>> 5bf054106c573241038f015992ed6e13cb718f23
         ]);
 
 
