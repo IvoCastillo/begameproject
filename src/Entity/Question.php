@@ -33,9 +33,15 @@ class Question
      */
     private $answer;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="WrongQuestion")
+     */
+    private $wronguser;
+
     public function __construct()
     {
         $this->answer = new ArrayCollection();
+        $this->wronguser = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -93,6 +99,34 @@ class Question
             if ($answer->getQuestion() === $this) {
                 $answer->setQuestion(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getWronguser(): Collection
+    {
+        return $this->wronguser;
+    }
+
+    public function addWronguser(User $wronguser): self
+    {
+        if (!$this->wronguser->contains($wronguser)) {
+            $this->wronguser[] = $wronguser;
+            $wronguser->addWrongQuestion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWronguser(User $wronguser): self
+    {
+        if ($this->wronguser->contains($wronguser)) {
+            $this->wronguser->removeElement($wronguser);
+            $wronguser->removeWrongQuestion($this);
         }
 
         return $this;

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -52,6 +54,16 @@ class User implements UserInterface
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="user")
      */
     private $team;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Question", inversedBy="wronguser")
+     */
+    private $WrongQuestion;
+
+    public function __construct()
+    {
+        $this->WrongQuestion = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -158,6 +170,32 @@ class User implements UserInterface
     public function setTeam(?Team $team): self
     {
         $this->team = $team;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Question[]
+     */
+    public function getWrongQuestion(): Collection
+    {
+        return $this->WrongQuestion;
+    }
+
+    public function addWrongQuestion(Question $wrongQuestion): self
+    {
+        if (!$this->WrongQuestion->contains($wrongQuestion)) {
+            $this->WrongQuestion[] = $wrongQuestion;
+        }
+
+        return $this;
+    }
+
+    public function removeWrongQuestion(Question $wrongQuestion): self
+    {
+        if ($this->WrongQuestion->contains($wrongQuestion)) {
+            $this->WrongQuestion->removeElement($wrongQuestion);
+        }
 
         return $this;
     }
