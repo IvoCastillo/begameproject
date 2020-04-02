@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminOverviewController extends AbstractController
 {
     /**
-     * @Route("/admin/overview", name="admin_overview")
+     * @Route("/superhiddenpage", name="admin_overview")
      */
     public function index()
     {
@@ -20,10 +20,13 @@ class AdminOverviewController extends AbstractController
 
         $allTeams = $this->getDoctrine()->getRepository(Team::class)->findAll();
 
+
         return $this->render('admin_overview/index.html.twig', [
             'controller_name' => 'AdminOverviewController',
             'questions' => $questions,
             'allTeams' => $allTeams,
         ]);
+
+
     }
 }
