@@ -13,12 +13,10 @@ class ViewQuestionController extends AbstractController
      */
     public function index()
     {
-
-        $viewAllQuest = $this->getDoctrine()->getRepository(Question::class)-> findAsArray();
-
+        $allQuestions = $this->getDoctrine()->getRepository(Question::class)->findAsArray();
 
         return $this->render('view_question/index.html.twig', [
-            'viewallquestions' => $viewAllQuest,
+            'allQuestions' => $allQuestions,
         ]);
     }
 }
