@@ -3,26 +3,12 @@
 {% block title %}Hello ProfilePageController!{% endblock %}
 
 {% block body %}
-    <style>
-        .example-wrapper {
-            margin: 1em auto;
-            max-width: 800px;
-            width: 95%;
-            font: 18px/1.5 sans-serif;
-        }
-
-        .example-wrapper code {
-            background: #F5F5F5;
-            padding: 2px 6px;
-        }
-    </style>
-    <h1>Hello {{ userName }}. You are in the team: <b>{{ teamName }}</b></h1>
-    <h3>Your score</h3>
-    <h3>{{ userScore }}</h3>
+    <h1>{{ userName }} </h1>
+    <h3>{{ teamName }} {{ megazorp }} </h3>
     <h3>Your team members</h3>
     <ul>
         {% for member in allMembers %}
-            <li>{{ member }}</li>
+            <li>{{ member.teamIvo }}  :  {{ member.scorez }}</li>
         {% endfor %}
     </ul>
     <h3>High Score</h3>
@@ -43,5 +29,12 @@
                 {% endif %}
             </a></button>
     {% endif %}
+
+    {% if not timeDiff %}
+        {% if team.isLocked %}
+            <p>You are ready to scan!</p>
+        {% endif %}
+    {% endif %}
+
 
 {% endblock %}
