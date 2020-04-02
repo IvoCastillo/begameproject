@@ -14,7 +14,7 @@ class AdminOverviewController extends AbstractController
     public function index()
     {
 
-        $allTeams = $this->getDoctrine()->getRepository(Team::class)->findAll();
+        $allTeamPendejos = $this->getDoctrine()->getRepository(Team::class)->findAll();
 
 
         return $this->render('admin_overview/index.html.twig', [
