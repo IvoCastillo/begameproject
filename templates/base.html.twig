@@ -11,16 +11,6 @@
     {% endblock %}
 </head>
 <body>
-<ol>
-    {% for question in viewallquestions %}
-    <li> {{ question.question }}
-        <a href="{{ path('edit_question', {question:question.id}) }}">
-            Edit Question</a> ,
-        <a href="{{ path('remove_question', {question:question.id}) }}">
-            X</a>
-    </li>
-    {% endfor %}
-</ol>
 {% block body %}{% endblock %}
 {% block javascripts %}
     <script src="../public/javascript.js"></script>

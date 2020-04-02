@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TimerController extends AbstractController
 {
     /**
-     * @Route("/view/{question}", name="timer")
+     * @Route("timer/view/{question}", name="timer")
      * @param Question $question
      * @return Response
      * @throws Exception

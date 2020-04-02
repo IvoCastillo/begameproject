@@ -3,22 +3,11 @@
 {% block title %}Hello AdminOverviewController!{% endblock %}
 
 {% block body %}
-    <ul>
-        {% for question in questions %}
-            <li>   {{ question.question }}
-                <a href="{{ path('edit_question', {question:question.id}) }}">
-                    Edit Question</a> ,
-                <a href="{{ path('remove_question', {question:question.id}) }}">
-                    X</a>
-            </li>
 
-
-        {% endfor %}
-
-    </ul>
     <button><a href="{{ path('add_question') }}">Add question</a></button>
     <button><a href="{{ path('q_rcode') }}">Generate codes!</a></button>
     <button><a href="{{ path('start_game') }}">Start Game!</a></button>
+    <button><a href="{{ path('view_question') }}">View all questions</a></button>
     <button id="startGame"><a href="{{ path('stop_game') }}">Stop Game!</a></button>
 
     <ul>
