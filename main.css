@@ -8,8 +8,9 @@ text-align: center;
 
 body{
     margin-top: 10%;
-    background-color: whitesmoke;
-    color: midnightblue;
+    background: rgb(29,24,113);
+    background: linear-gradient(90deg, rgba(29,24,113,1) 0%, rgba(76,18,113,1) 95%);
+    color: #ede9eb;
 }
 button {
     margin: 5px;
