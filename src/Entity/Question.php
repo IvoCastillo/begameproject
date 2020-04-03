@@ -34,14 +34,15 @@ class Question
     private $answer;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="WrongQuestion")
+     * @ORM\OneToMany(targetEntity="App\Entity\UserQuestion", mappedBy="question", orphanRemoval=true)
      */
-    private $wronguser;
+    private $userQuestions;
+
 
     public function __construct()
     {
         $this->answer = new ArrayCollection();
-        $this->wronguser = new ArrayCollection();
+        $this->userQuestions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -112,24 +113,37 @@ class Question
         return $this->wronguser;
     }
 
-    public function addUser(User $user): self
+    /**
+     * @return Collection|UserQuestion[]
+     */
+    public function getUserQuestions(): Collection
     {
-        if (!$this->wronguser->contains($user)) {
-            $this->wronguser[] = $user;
-            $user->addWrongQuestion($this);
+        return $this->userQuestions;
+    }
+
+    public function addUserQuestion(UserQuestion $userQuestion): self
+    {
+        if (!$this->userQuestions->contains($userQuestion)) {
+            $this->userQuestions[] = $userQuestion;
+            $userQuestion->setQuestion($this);
         }
 
         return $this;
     }
 
-    public function removeWronguser(User $wronguser): self
+    public function removeUserQuestion(UserQuestion $userQuestion): self
     {
-        if ($this->wronguser->contains($wronguser)) {
-            $this->wronguser->removeElement($wronguser);
-            $wronguser->removeWrongQuestion($this);
+        if ($this->userQuestions->contains($userQuestion)) {
+            $this->userQuestions->removeElement($userQuestion);
+            // set the owning side to null (unless already changed)
+            if ($userQuestion->getQuestion() === $this) {
+                $userQuestion->setQuestion(null);
+            }
         }
 
         return $this;
     }
+
+
 
 }

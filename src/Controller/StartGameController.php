@@ -18,8 +18,9 @@ class StartGameController extends AbstractController
         /*
          * @var Timer $timer
          */
+        $howLong = $_POST['howLong'];
         $date = new DateTime(); //now
-        $date->add(new DateInterval('PT60M'));
+        $date->add(new DateInterval('PT'.$howLong.'M'));
         $date->format('Y-m-d H:i:s');
         $timer = new Timer();
         $timer->setTimer($date);
@@ -53,7 +54,6 @@ class StartGameController extends AbstractController
         if ($timerExists){
             foreach ($timerExists as $existingTimer){
                 $em->remove($existingTimer);
-                $em->flush();
             }
         }
         $em->persist($timer);

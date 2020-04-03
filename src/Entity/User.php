@@ -45,10 +45,6 @@ class User implements UserInterface
      */
     private $score;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $correctAnswer;
 
     /**
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="user")
@@ -56,14 +52,15 @@ class User implements UserInterface
     private $team;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Question", inversedBy="wronguser")
+     * @ORM\OneToMany(targetEntity="App\Entity\UserQuestion", mappedBy="user", orphanRemoval=true)
      */
-    private $WrongQuestion;
+    private $userQuestion;
 
     public function __construct()
     {
-        $this->WrongQuestion = new ArrayCollection();
+        $this->userQuestion = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -150,17 +147,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getCorrectAnswer(): ?int
-    {
-        return $this->correctAnswer;
-    }
-
-    public function setCorrectAnswer(int $correctAnswer): self
-    {
-        $this->correctAnswer = $correctAnswer;
-
-        return $this;
-    }
 
     public function getTeam(): ?Team
     {
@@ -175,30 +161,37 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection|Question[]
+     * @return Collection|UserQuestion[]
      */
-    public function getWrongQuestion(): Collection
+    public function getUserQuestion(): Collection
     {
-        return $this->WrongQuestion;
+        return $this->userQuestion;
     }
 
-    public function addWrongQuestion(Question $wrongQuestion): self
+    public function addQuestion(UserQuestion $question): self
     {
-        if (!$this->WrongQuestion->contains($wrongQuestion)) {
-            $this->WrongQuestion[] = $wrongQuestion;
+        if (!$this->userQuestion->contains($question)) {
+            $this->userQuestion[] = $question;
+            $question->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeWrongQuestion(Question $wrongQuestion): self
+    public function removeQuestion(UserQuestion $question): self
     {
-        if ($this->WrongQuestion->contains($wrongQuestion)) {
-            $this->WrongQuestion->removeElement($wrongQuestion);
+        if ($this->userQuestion->contains($question)) {
+            $this->userQuestion->removeElement($question);
+            // set the owning side to null (unless already changed)
+            if ($question->getUser() === $this) {
+                $question->setUser(null);
+            }
         }
 
         return $this;
     }
+
+
 //    public static function loadValidatorMetadata(ClassMetadata $metadata)
 //    {
 //        $metadata->addConstraint(new UniqueEntity([

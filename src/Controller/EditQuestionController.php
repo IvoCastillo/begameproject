@@ -18,6 +18,10 @@ class EditQuestionController extends AbstractController
      */
     public function index(Question $question, Request $request)
     {
+        if (!$this->getUser()){
+            return $this->redirectToRoute('login');
+        }
+
         $form = $this->createForm(AddQuestionType::class, $question);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){

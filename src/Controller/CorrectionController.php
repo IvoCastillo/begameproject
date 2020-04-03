@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Question;
 use App\Entity\Team;
 use App\Entity\User;
+use App\Entity\UserQuestion;
 use Doctrine\ORM\Query\ResultSetMappingBuilder;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,43 +26,35 @@ class CorrectionController extends AbstractController
          */
         $em = $this->getDoctrine()->getManager();
 
-        $rsm = new ResultSetMappingBuilder($em);
-
         $user = $this->getUser();
         $team = $user->getTeam();
+
         $POINTSPERCORRECT = 10;
         $POINTSPERDONTKNOW = -1;
         $POINTSPERWRONG = -10;
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createNativeQuery('INSERT INTO user_question(user_id, question_id, correct) VALUES (?,?,?)', $rsm);
-        $query->setParameter(1, $user->getId());
-        $query->setParameter(2, $question->getId());
         $answer = $_POST['chosenAns'];
         if ($answer === "giveUp") {
-
-            $query->setParameter(3, 0);
-
             $user->setScore($user->getScore() + $POINTSPERDONTKNOW);
             $team->setTeamScore($team->getTeamScore() + $POINTSPERDONTKNOW);
+            $userQuestion = new UserQuestion($user, $question, false);
+
         } elseif ($answer == 1) {
             $user->setScore($user->getScore() + $POINTSPERCORRECT);
             $team->setTeamScore($team->getTeamScore() + $POINTSPERCORRECT);
-            $query->setParameter(3, 1);
+            $userQuestion = new UserQuestion($user, $question, true);
 
         } else {
             $user->setScore($user->getScore() + $POINTSPERWRONG);
             $team->setTeamScore($team->getTeamScore() + $POINTSPERWRONG);
-            $query->setParameter(3, 0);
+            $userQuestion = new UserQuestion($user, $question, false);
 
         }
         $em->persist($user);
         $em->persist($team);
-        // doExecute used to be a protected function
-        // Making it public fixed errors
-        // Since this file is gitignored, change it yourself at
-        ///var/www/begame/vendor/doctrine/orm/lib/Doctrine/ORM/NativeQuery.php
-        $query->_doExecute();
+        $em->persist($userQuestion);
+
         $em->flush();
+
 
         return $this->redirectToRoute('profile_page');
     }

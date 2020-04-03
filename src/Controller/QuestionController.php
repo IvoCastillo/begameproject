@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Domain\TimerTrait;
 use App\Entity\Question;
 use App\Entity\Timer;
 use DateTime;
@@ -12,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class QuestionController extends AbstractController
 {
+    use TimerTrait;
     /**
      * @Route("/question/{question}", name="question")
      * @param Question $question
@@ -20,22 +22,17 @@ class QuestionController extends AbstractController
      */
     public function index(Question $question)
     {
-        if (!$this->getDoctrine()->getRepository(Timer::class)->findAll()){
-            return $this->redirectToRoute('profile_page');
-        }
-        $endTimerDB = $this->getDoctrine()->getRepository(Timer::class)->findAll()[0];
-        $endTimer = new DateTime($endTimerDB->getTimer()->format('Y-m-d H:i:s'));
-        $currentTime = new DateTime(); //now
-        $currentTime->format('Y-m-d H:i:s');
-        $timeDiff = $currentTime->diff($endTimer);
-        if ($timeDiff->invert === 1 || !$endTimerDB) {
+        $timerDiffJS = $this->getTimerDiff();
+
+        if (!$timerDiffJS || $timerDiffJS->invert === 1){
             return $this->redirectToRoute('profile_page');
         }
 
         $question->getAnswer();
         return $this->render('question/index.html.twig', [
             'controller_name' => 'QuestionController',
-            'question' => $question
+            'question' => $question,
+            'timeDiffJS' => $timerDiffJS,
         ]);
     }
 }

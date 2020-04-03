@@ -13,6 +13,9 @@ class ViewQuestionController extends AbstractController
      */
     public function index()
     {
+        if (!$this->getUser()){
+            return $this->redirectToRoute('login');
+        }
         $allQuestions = $this->getDoctrine()->getRepository(Question::class)->findAsArray();
 
         return $this->render('view_question/index.html.twig', [

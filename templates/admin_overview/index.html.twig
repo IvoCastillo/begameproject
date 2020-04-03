@@ -6,11 +6,16 @@
 
 
     <button><a href="{{ path('q_rcode') }}">Generate codes!</a></button>
-    <button><a href="{{ path('start_game') }}">Start Game!</a></button>
     <button><a href="{{ path('view_question') }}">View all questions</a></button>
     <button id="startGame"><a href="{{ path('stop_game') }}">Stop Game!</a></button>
 
-
+    <form action="{{ path('start_game') }}" method="post">
+        <input type="radio" name="howLong" value="60" checked> 60min
+        <input type="radio" name="howLong" value="45"> 45min
+        <input type="radio" name="howLong" value="30"> 30min
+        <input type="radio" name="howLong" value="15"> 15min
+        <button type="submit">START GAME</button>
+    </form>
     <ul>
         {% for team in pendejos %}
 
@@ -23,4 +28,28 @@
         {% endfor %}
 
     </ul>
+
+    <p id="timer"></p>
+{% if timeDiffJS is not null and timeDiffInv != 1 %}
+    <script>
+        let s = "{{ timeDiffJS.s }}";
+        let m = "{{ timeDiffJS.i }}";
+        let timerDiv = document.getElementById('timer');
+        function updateClock(){
+            s--;
+            if (s == -1){
+                s = 59;
+                m--;
+            }
+            if (s == 0 && m == 0){
+                timerDiv.innerHTML = "TIMES UP";
+                clearInterval(TIMER)
+            } else {
+                timerDiv.innerHTML = `${m}m: ${s}s remaining`
+            }
+        }
+        const TIMER = setInterval(updateClock, 1000);
+        timerDiv.innerHTML = `${m}m: ${s}s remaining`
+    </script>
+    {% endif %}
 {% endblock %}

@@ -19,6 +19,9 @@ class AddQuestionController extends AbstractController
      */
     public function index(Request $request)
     {
+        if (!$this->getUser()){
+            return $this->redirectToRoute('login');
+        }
         $question = new Question();
         for ($i = 0; $i<4; $i++){
             $question->addAnswer(new Answer());

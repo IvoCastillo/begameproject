@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Domain\TimerTrait;
 use App\Entity\Team;
 use App\Entity\Timer;
 use DateTime;
@@ -10,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProfilePageController extends AbstractController
 {
+    use TimerTrait;
     /**
      * @Route("/profile", name="profile_page")
      * @throws \Exception
@@ -19,7 +21,9 @@ class ProfilePageController extends AbstractController
         /*
          * @var User $user
          */
-
+        if (!$this->getUser()){
+            return $this->redirectToRoute('login');
+        }
         $user = $this->getUser();
         $teamname = $user->getTeam();
         $userName = $user->getUsername();
@@ -44,17 +48,6 @@ class ProfilePageController extends AbstractController
         rsort($allTeamScores);
         $allTeamScores = array_slice($allTeamScores, 0, 3);
 
-        if ($this->getDoctrine()->getRepository(Timer::class)->findAll()){
-            $endTimerDB = $this->getDoctrine()->getRepository(Timer::class)->findAll()[0];
-
-            $endTimer = new DateTime($endTimerDB->getTimer()->format('Y-m-d H:i:s'));
-            $currentTime = new DateTime(); //now
-            $currentTime->format('Y-m-d H:i:s');
-            $timeDiff = $currentTime->diff($endTimer)->invert;
-        } else {
-            $timeDiff = 1;
-        }
-
 
         return $this->render('profile_page/index.html.twig', [
             'teamName' => $teamname,
@@ -63,8 +56,8 @@ class ProfilePageController extends AbstractController
             'userScore' => $userScore,
             'topScores' => $allTeamScores,
             'team' => $user->getTeam(),
-            'timeDiff' => $timeDiff,
             'megazorp' => $teamScoreActivate,
+            'timeDiffJS' => $this->getTimerDiff(),
         ]);
     }
 }
