@@ -22,7 +22,7 @@ class ProfilePageController extends AbstractController
          * @var User $user
          */
         if (!$this->getUser()){
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('app_login');
         }
         $user = $this->getUser();
         $teamname = $user->getTeam();

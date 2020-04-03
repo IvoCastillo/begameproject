@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Domain\TimerTrait;
 use App\Entity\Team;
 use App\Entity\Timer;
 use DateTime;
@@ -10,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminOverviewController extends AbstractController
 {
+    use TimerTrait;
     /**
      * @Route("/superhiddenpage", name="admin_overview")
      * @throws \Exception
@@ -17,7 +19,10 @@ class AdminOverviewController extends AbstractController
     public function index()
     {
         if (!$this->getUser()){
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('app_login');
+        }
+        if (!in_array($this->getUser()->getRoles(), ["ROLE_COACH"])){
+            return $this->redirectToRoute('profile_page');
         }
         if ($this->getDoctrine()->getRepository(Timer::class)->findAll()){
             $endTimerDB = $this->getDoctrine()->getRepository(Timer::class)->findAll()[0];
@@ -36,7 +41,7 @@ class AdminOverviewController extends AbstractController
         return $this->render('admin_overview/index.html.twig', [
             'controller_name' => 'AdminOverviewController',
             'pendejos' => $allTeamPendejos,
-            'timeDiffJS' => $timeDiffJS,
+            'timeDiffJS' => $this->getTimerDiff(),
             'timeDiffInv' => $timeDiffJS->invert,
         ]);
 
