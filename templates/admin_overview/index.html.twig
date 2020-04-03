@@ -22,7 +22,7 @@
             <li><p><b>{{ team.teamName }}</b></p></li>
             <ul>
                 {% for user in team.user %}
-                    <li> {{ user.username }}</li>
+                    <li><a href="{{ path('userProfile', {user:user.id}) }}">{{ user.username }}</a></li>
                 {% endfor %}
             </ul>
         {% endfor %}

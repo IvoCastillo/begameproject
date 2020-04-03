@@ -13,7 +13,7 @@ class ProfilePageController extends AbstractController
 {
     use TimerTrait;
     /**
-     * @Route("/profile", name="profile_page")
+     * @Route("/team/profile", name="profile_page")
      * @throws \Exception
      */
     public function index()

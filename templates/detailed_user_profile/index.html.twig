@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DetailedUserProfileController!{% endblock %}
+
+{% block body %}
+
+    <h1>User: {{ user.username }}</h1>
+    <h2>Team: {{ user.getTeam }}</h2>
+
+    <table>
+        <tr>
+            <th>Questions</th>
+            <th>Correct?</th>
+        </tr>
+
+        {% for answer in user.getUserQuestion  %}
+                <tr>
+                    <td>{{ answer.question.question }}</td>
+                    {% if answer.correct %}
+                        <td>YES</td>
+                        {% else %}
+                            <td>NO</td>
+                    {% endif %}
+                </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}
