@@ -32,7 +32,7 @@ class CorrectionController extends AbstractController
         $POINTSPERCORRECT = 10;
         $POINTSPERDONTKNOW = -1;
         $POINTSPERWRONG = -10;
-        $answer = $_POST['chosenAns'];
+        $answer = trim($_POST['chosenAns']);
         if ($answer === "giveUp") {
             $user->setScore($user->getScore() + $POINTSPERDONTKNOW);
             $team->setTeamScore($team->getTeamScore() + $POINTSPERDONTKNOW);

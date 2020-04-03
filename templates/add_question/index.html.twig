@@ -13,4 +13,26 @@
 
     {{ form_end(form) }}
 
+    <script>
+        (function myFunc() {
+            let dropdown = document.getElementById('add_question_type');
+            let answerFields = document.getElementById('add_question_answer').childNodes;
+            dropdown.addEventListener("click",
+            function () {
+                if (dropdown.value === "open"){
+                    answerFields.forEach((answerField) => {
+                        if (answerField === answerFields[0]) {
+                            answerField.style.display = "block";
+                        } else {
+                            answerField.style.display = "none";
+                        }
+                    });
+                } else {
+                    answerFields.forEach((answerField) => {
+                        answerField.style.display = "block";
+                    });
+                }
+            });
+        })();
+    </script>
 {% endblock %}

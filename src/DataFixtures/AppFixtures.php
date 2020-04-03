@@ -19,6 +19,7 @@ class AppFixtures extends Fixture
             $question = new Question();
             $question->setQuestion($q['question']);
             $question->setCategory($q['category']);
+            $question->setType($q['type']);
             foreach ($q['answer'] as $a){
                 $newAnswer = new Answer();
                 $newAnswer->setQuestion($question);
@@ -39,7 +40,6 @@ class AppFixtures extends Fixture
         $user->setTeam($team);
         $manager->persist($team);
         $manager->persist($user);
-
         $manager->flush();
     }
 }

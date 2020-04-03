@@ -41,6 +41,8 @@ class AddQuestionController extends AbstractController
             foreach ($question->getAnswer() as $answer) {
                 if ($answer->getAnswer() == "") {
                     $question->removeAnswer($answer);
+                } else {
+                    trim($answer->getAnswer());
                 }
             }
             $em->persist($question);
