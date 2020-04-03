@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Domain\TimerTrait;
 use App\Entity\Team;
 use App\Entity\Timer;
+use App\Entity\User;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,25 +19,17 @@ class ProfilePageController extends AbstractController
      */
     public function index()
     {
-        /*
-         * @var User $user
+
+         /* @var User $user
          */
         if (!$this->getUser()){
             return $this->redirectToRoute('app_login');
         }
-        $user = $this->getUser();
-        $teamname = $user->getTeam();
-        $userName = $user->getUsername();
-        for($i = 0; $i < count($teamname->getUser()); $i++) {
-            $allMembers[] = [
-                'teamIvo' => $teamname->getUser()[$i]->getUsername(),
-                'scorez' => $teamname->getUser()[$i]->getScore()];
-            $justOneScore[] =
-                $teamname->getUser()[$i]->getScore();
+        if (!$this->getUser()->getTeam()){
+            return $this->redirectToRoute('homepage');
         }
-        $teamScoreActivate = array_sum($justOneScore);
+        $user = $this->getUser();
 
-        $userScore = $user->getScore();
 
         $allTeams = $this->getDoctrine()->getRepository(Team::class)->findAll();
         for($i = 0; $i < count($allTeams); $i++) {
@@ -50,14 +43,11 @@ class ProfilePageController extends AbstractController
 
 
         return $this->render('profile_page/index.html.twig', [
-            'teamName' => $teamname,
-            'userName' => $userName,
-            'allMembers' => $allMembers,
-            'userScore' => $userScore,
             'topScores' => $allTeamScores,
             'team' => $user->getTeam(),
-            'megazorp' => $teamScoreActivate,
             'timeDiffJS' => $this->getTimerDiff(),
+            'user' => $user,
+
         ]);
     }
 }

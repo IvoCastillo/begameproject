@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class EditQuestionController extends AbstractController
 {
     /**
-     * @Route("/edit/question/{question}", name="edit_question")
+     * @Route("coach/edit/question/{question}", name="edit_question")
      * @param Question $question
      * @return Response
      */

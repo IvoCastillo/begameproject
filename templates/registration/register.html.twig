@@ -22,9 +22,11 @@
             teamField.style.display = "none";
             advancedCheckBox.addEventListener("click", function () {
                 teamField.style.display = "block";
+                teamField.setAttribute('required', "");
             });
             rookieCheckBox.addEventListener("click", function () {
                 teamField.style.display = "none";
+                teamField.removeAttribute('required');
             });
         })();
     </script>

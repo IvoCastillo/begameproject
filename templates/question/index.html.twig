@@ -15,20 +15,5 @@
         <button name="submit" type="submit">you sure?</button>
     </form>
     <p id="timer"></p>
-
-    <script>
-        let s = "{{ timeDiffJS.s }}";
-        let m = "{{ timeDiffJS.i }}";
-        let timerDiv = document.getElementById('timer');
-        function updateClock(){
-            s--;
-            if (s == -1){
-                s = 59;
-                m--;
-            }
-            timerDiv.innerHTML = `${m}m: ${s}s remaining`
-        }
-        setInterval(updateClock, 1000);
-        timerDiv.innerHTML = `${m}m: ${s}s remaining`
-    </script>
+ {% include 'Partials/timer.html.twig' %}
 {% endblock %}
