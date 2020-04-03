@@ -33,7 +33,6 @@ class CorrectionController extends AbstractController
         $POINTSPERDONTKNOW = -1;
         $POINTSPERWRONG = -10;
         $answer = trim($_POST['chosenAns']);
-
         if ($answer === "giveUp") {
             $user->setScore($user->getScore() + $POINTSPERDONTKNOW);
             $team->setTeamScore($team->getTeamScore() + $POINTSPERDONTKNOW);
@@ -50,7 +49,7 @@ class CorrectionController extends AbstractController
                     $userQuestion = new UserQuestion($user, $question, false);
                 }
             } else {
-                if ($answer == $question->getAnswer()[0]) {
+                if ($answer == $question->getAnswer()[0]->getAnswer()) {
                     $user->setScore($user->getScore() + $POINTSPERCORRECT);
                     $team->setTeamScore($team->getTeamScore() + $POINTSPERCORRECT);
                     $userQuestion = new UserQuestion($user, $question, true);
@@ -60,7 +59,6 @@ class CorrectionController extends AbstractController
                     $userQuestion = new UserQuestion($user, $question, false);
                 }
             }
-
         }
         $em->persist($user);
         $em->persist($team);
