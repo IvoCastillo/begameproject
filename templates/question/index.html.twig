@@ -9,12 +9,14 @@
         {% if question.type == "mc" %}
         {% for answer in question.answer %}
             <input type="radio" value="{{ answer.type }}" name="chosenAns">{{ answer.answer }} <br>
+            <input type="radio" value="giveUp" name="chosenAns">I don't know<br>
 
         {% endfor %}
         {% else %}
+            <input type="checkbox" value="giveUp" name="chosenAns">I don't know<br>
+
             <textarea name="chosenAns"></textarea><br>
         {% endif %}
-        <input type="radio" value="giveUp" name="chosenAns">I don't know<br>
 
         <button name="submit" type="submit">you sure?</button>
     </form>

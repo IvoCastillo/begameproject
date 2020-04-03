@@ -9,6 +9,7 @@
     {{ form_row(registrationForm.username) }}
     {{ form_row(registrationForm.roles) }}
     {{ form_errors(registrationForm) }}
+    <p id="error"></p>
     <button class="btn">Register</button>
     {{ form_end(registrationForm) }}
 
@@ -17,6 +18,13 @@
         (function myFunc() {
             let rookieCheckBox = document.getElementById('registration_form_roles_0');
             let advancedCheckBox = document.getElementById('registration_form_roles_1');
+            let nameInputField = document.getElementById('registration_form_username');
+
+            nameInputField.addEventListener("keyup", function () {
+                nameInputField.value = nameInputField.value.replace(/\s/g,'');
+
+                console.log('hallo');
+            });
 
             let teamField = document.getElementById('registration_form_randomField');
             teamField.style.display = "none";
