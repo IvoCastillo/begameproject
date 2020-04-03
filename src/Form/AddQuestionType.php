@@ -17,6 +17,7 @@ class AddQuestionType extends AbstractType
             ->add('category')
             ->add('answer', CollectionType::class, [
                 'entry_type' => AddAnswerType::class,
+                'required' => false,
             ])
         ;
     }
