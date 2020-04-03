@@ -13,7 +13,7 @@ class AdminOverviewController extends AbstractController
 {
     use TimerTrait;
     /**
-     * @Route("/superhiddenpage", name="admin_overview")
+     * @Route("/coach/dash", name="admin_overview")
      * @throws \Exception
      */
     public function index()
