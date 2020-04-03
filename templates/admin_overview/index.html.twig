@@ -30,26 +30,6 @@
     </ul>
 
     <p id="timer"></p>
-{% if timeDiffJS is not null and timeDiffInv != 1 %}
-    <script>
-        let s = "{{ timeDiffJS.s }}";
-        let m = "{{ timeDiffJS.i }}";
-        let timerDiv = document.getElementById('timer');
-        function updateClock(){
-            s--;
-            if (s == -1){
-                s = 59;
-                m--;
-            }
-            if (s == 0 && m == 0){
-                timerDiv.innerHTML = "TIMES UP";
-                clearInterval(TIMER)
-            } else {
-                timerDiv.innerHTML = `${m}m: ${s}s remaining`
-            }
-        }
-        const TIMER = setInterval(updateClock, 1000);
-        timerDiv.innerHTML = `${m}m: ${s}s remaining`
-    </script>
-    {% endif %}
+    {% include 'Partials/timer.html.twig' %}
+
 {% endblock %}
