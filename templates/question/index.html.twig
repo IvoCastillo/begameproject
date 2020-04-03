@@ -6,10 +6,14 @@
     <form method="post" action="{{ path('correction', {question:question.id}) }}">
 
         {{ question.question }} <br>
+        {% if question.type == "mc" %}
         {% for answer in question.answer %}
             <input type="radio" value="{{ answer.type }}" name="chosenAns">{{ answer.answer }} <br>
 
         {% endfor %}
+        {% else %}
+            <textarea name="chosenAns"></textarea><br>
+        {% endif %}
         <input type="radio" value="giveUp" name="chosenAns">I don't know<br>
 
         <button name="submit" type="submit">you sure?</button>

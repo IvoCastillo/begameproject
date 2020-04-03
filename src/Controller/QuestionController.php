@@ -28,7 +28,6 @@ class QuestionController extends AbstractController
             return $this->redirectToRoute('profile_page');
         }
 
-        $question->getAnswer();
         return $this->render('question/index.html.twig', [
             'controller_name' => 'QuestionController',
             'question' => $question,

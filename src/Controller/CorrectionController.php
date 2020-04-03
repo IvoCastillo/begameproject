@@ -33,20 +33,33 @@ class CorrectionController extends AbstractController
         $POINTSPERDONTKNOW = -1;
         $POINTSPERWRONG = -10;
         $answer = trim($_POST['chosenAns']);
+
         if ($answer === "giveUp") {
             $user->setScore($user->getScore() + $POINTSPERDONTKNOW);
             $team->setTeamScore($team->getTeamScore() + $POINTSPERDONTKNOW);
             $userQuestion = new UserQuestion($user, $question, false);
-
-        } elseif ($answer == 1) {
-            $user->setScore($user->getScore() + $POINTSPERCORRECT);
-            $team->setTeamScore($team->getTeamScore() + $POINTSPERCORRECT);
-            $userQuestion = new UserQuestion($user, $question, true);
-
         } else {
-            $user->setScore($user->getScore() + $POINTSPERWRONG);
-            $team->setTeamScore($team->getTeamScore() + $POINTSPERWRONG);
-            $userQuestion = new UserQuestion($user, $question, false);
+            if ($question->getType() === "mc") {
+                if ($answer == 1) {
+                    $user->setScore($user->getScore() + $POINTSPERCORRECT);
+                    $team->setTeamScore($team->getTeamScore() + $POINTSPERCORRECT);
+                    $userQuestion = new UserQuestion($user, $question, true);
+                } else {
+                    $user->setScore($user->getScore() + $POINTSPERWRONG);
+                    $team->setTeamScore($team->getTeamScore() + $POINTSPERWRONG);
+                    $userQuestion = new UserQuestion($user, $question, false);
+                }
+            } else {
+                if ($answer == $question->getAnswer()[0]) {
+                    $user->setScore($user->getScore() + $POINTSPERCORRECT);
+                    $team->setTeamScore($team->getTeamScore() + $POINTSPERCORRECT);
+                    $userQuestion = new UserQuestion($user, $question, true);
+                } else {
+                    $user->setScore($user->getScore() + $POINTSPERWRONG);
+                    $team->setTeamScore($team->getTeamScore() + $POINTSPERWRONG);
+                    $userQuestion = new UserQuestion($user, $question, false);
+                }
+            }
 
         }
         $em->persist($user);
