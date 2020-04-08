@@ -1,0 +1,145 @@
+[
+    {
+        "id": 7,
+        "question": "Hoe gaat het",
+        "category": "zfze",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 25,
+                "answer": "zefzef",
+                "type": false
+            },
+            {
+                "id": 26,
+                "answer": "zefef",
+                "type": false
+            },
+            {
+                "id": 27,
+                "answer": "zefze",
+                "type": false
+            },
+            {
+                "id": 28,
+                "answer": "CORRECT",
+                "type": true
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "question": "zefzef",
+        "category": "zefzfef",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 29,
+                "answer": "zefze",
+                "type": false
+            },
+            {
+                "id": 30,
+                "answer": "zfzeezefefzee",
+                "type": true
+            },
+            {
+                "id": 31,
+                "answer": "zefzeef",
+                "type": false
+            },
+            {
+                "id": 32,
+                "answer": "zefzeee",
+                "type": false
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "question": "vraag1",
+        "category": "hallo",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 33,
+                "answer": "een answer",
+                "type": false
+            },
+            {
+                "id": 34,
+                "answer": "ezefe",
+                "type": true
+            },
+            {
+                "id": 35,
+                "answer": "ZFZE",
+                "type": false
+            },
+            {
+                "id": 36,
+                "answer": "fzefzezeze",
+                "type": false
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "question": "VRAAG",
+        "category": "CATEGORY",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 37,
+                "answer": "Answer",
+                "type": false
+            },
+            {
+                "id": 38,
+                "answer": "Answer",
+                "type": false
+            },
+            {
+                "id": 39,
+                "answer": "TAnswer",
+                "type": true
+            },
+            {
+                "id": 40,
+                "answer": "Answer",
+                "type": false
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "question": "VRAAG",
+        "category": "CATEGORY",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 41,
+                "answer": "Answer",
+                "type": false
+            },
+            {
+                "id": 42,
+                "answer": "Answer",
+                "type": false
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "question": "Trekt m'n haar op de kloten",
+        "category": "Stijl",
+        "type": "open",
+        "answer": [
+            {
+                "id": 43,
+                "answer": "jot",
+                "type": true
+            }
+        ]
+    }
+]

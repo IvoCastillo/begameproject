@@ -13,7 +13,7 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-       $questions = json_decode(file_get_contents('Questions.json'), true);
+       $questions = json_decode(file_get_contents("/var/www/begame/public/VRAAG.json"), true);
 
         foreach ($questions as $q){
             $question = new Question();

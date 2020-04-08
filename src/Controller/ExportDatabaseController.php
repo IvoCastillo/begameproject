@@ -16,9 +16,7 @@ class ExportDatabaseController extends AbstractController
     public function index()
     {
         $questions = $this->getDoctrine()->getRepository(Question::class)->findAll();
-//        foreach ($questions as $question){
-//            $testq[] = $question->toArray();
-//        }
+
         /**
          * @var Answer $a
          **/
@@ -41,12 +39,9 @@ class ExportDatabaseController extends AbstractController
             }
         }
 
-        //$questionsJson = json_encode($allQuestions, JSON_PRETTY_PRINT);
-        $questionsJson = $this->json($allQuestions);
-        //print_r($allQuestions);
-        file_put_contents("Questions.json", $questionsJson);
-
-        return $this->redirectToRoute('export_database');
+        $questionsJson = json_encode($allQuestions, JSON_PRETTY_PRINT);
+        file_put_contents("/var/www/begame/public/VRAAG.json", $questionsJson);
+        return $this->redirectToRoute('admin_overview');
     }
 
 }
