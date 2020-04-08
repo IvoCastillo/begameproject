@@ -141,5 +141,61 @@
                 "type": true
             }
         ]
+    },
+    {
+        "id": 13,
+        "question": "MATTHIJS",
+        "category": "VRAAGDOORDEDATABASE",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 44,
+                "answer": "VRAAGDOORDEDATABASE",
+                "type": false
+            },
+            {
+                "id": 45,
+                "answer": "VRAAGDOORDEDATABASE",
+                "type": false
+            },
+            {
+                "id": 46,
+                "answer": "VRAAGDOORDEDATABASE",
+                "type": false
+            },
+            {
+                "id": 47,
+                "answer": "VRAAGDOORDEDATABASE",
+                "type": true
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "question": "PERMISSIONPLS",
+        "category": "PERMISSIONPLS",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 48,
+                "answer": "PERMISSIONPLS",
+                "type": false
+            },
+            {
+                "id": 49,
+                "answer": "PERMISSIONPLS",
+                "type": false
+            },
+            {
+                "id": 50,
+                "answer": "PERMISSIONPLS",
+                "type": true
+            },
+            {
+                "id": 51,
+                "answer": "PERMISSIONPLS",
+                "type": false
+            }
+        ]
     }
 ]

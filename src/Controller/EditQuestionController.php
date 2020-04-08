@@ -21,6 +21,9 @@ class EditQuestionController extends AbstractController
         if (!$this->getUser()){
             return $this->redirectToRoute('login');
         }
+        if (!in_array("ROLE_COACH", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("profile_page");
+        }
 
         $form = $this->createForm(AddQuestionType::class, $question);
         $form->handleRequest($request);

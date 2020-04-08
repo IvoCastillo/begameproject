@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ExportDatabaseController extends AbstractController
 {
     /**
-     * @Route("/export/database", name="export_database")
+     * @Route("/coach/export/database", name="export_database")
      */
     public function index()
     {
@@ -20,6 +20,9 @@ class ExportDatabaseController extends AbstractController
         /**
          * @var Answer $a
          **/
+        if (!in_array("ROLE_COACH", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("profile_page");
+        }
 
         for ($i = 0; $i < count($questions); $i++) {
             $allQuestions[] = [
@@ -31,7 +34,6 @@ class ExportDatabaseController extends AbstractController
             ];
             for ($j = 0; $j < count($questions[$i]->getAnswer()); $j++) {
                 $allQuestions[$i]['answer'][$j] = [
-
                     'id' => $questions[$i]->getAnswer()[$j]->getId(),
                     'answer' => $questions[$i]->getAnswer()[$j]->getAnswer(),
                     'type' => $questions[$i]->getAnswer()[$j]->getType(),

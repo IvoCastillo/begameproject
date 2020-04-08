@@ -9,10 +9,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class QRcodeController extends AbstractController
 {
     /**
-     * @Route("/qrcode", name="q_rcode")
+     * @Route("/coach/qrcode", name="q_rcode")
      */
     public function index()
     {
+        if (!in_array("ROLE_COACH", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("profile_page");
+        }
         $allQuestions = $this->getDoctrine()->getRepository(Question::class)->findAll();
 
 

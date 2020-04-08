@@ -10,12 +10,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class RemoveQuestionController extends AbstractController
 {
     /**
-     * @Route("/remove/question/{question}", name="remove_question")
+     * @Route("/coach/remove/question/{question}", name="remove_question")
      * @param Question $question
      * @return RedirectResponse
      */
     public function index(Question $question)
     {
+        if (!in_array("ROLE_COACH", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("profile_page");
+        }
         $em = $this->getDoctrine()->getManager();
         $em->remove($question);
         $em->flush();

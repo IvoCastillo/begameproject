@@ -11,13 +11,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class StartGameController extends AbstractController
 {
     /**
-     * @Route("/start/game", name="start_game")
+     * @Route("/coach/start/game", name="start_game")
      */
     public function index()
     {
         /*
          * @var Timer $timer
          */
+        if (!in_array("ROLE_COACH", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("profile_page");
+        }
         $howLong = $_POST['howLong'];
         $date = new DateTime(); //now
         $date->add(new DateInterval('PT'.$howLong.'M'));
