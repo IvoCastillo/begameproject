@@ -19,7 +19,9 @@ class ProfilePageController extends AbstractController
      */
     public function index()
     {
-
+        if (in_array("ROLE_COACH", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("admin_overview");
+        }
          /* @var User $user
          */
         if (!$this->getUser()){

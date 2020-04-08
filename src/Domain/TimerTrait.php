@@ -12,17 +12,13 @@ trait TimerTrait
 
     private function getTimerDiff()
     {
-        if ($this->getDoctrine()->getRepository(Timer::class)->findAll()) {
-            $endTimerDB = $this->getDoctrine()->getRepository(Timer::class)->findAll()[0];
+        $endTimerDB = $this->getDoctrine()->getRepository(Timer::class)->findAll()[0];
 
-            $endTimer = new DateTime($endTimerDB->getTimer()->format('Y-m-d H:i:s'));
-            $currentTime = new DateTime(); //now
-            $currentTime->format('Y-m-d H:i:s');
-            $timeDiffJS = $currentTime->diff($endTimer);
-        } else {
-            $timeDiffJS = null;
-        }
-        return $timeDiffJS;
+        $endTimer = new DateTime($endTimerDB->getTimer()->format('Y-m-d H:i:s'));
+        $currentTime = new DateTime(); //now
+        $currentTime->format('Y-m-d H:i:s');
+
+        return $currentTime->diff($endTimer);
 
     }
 }

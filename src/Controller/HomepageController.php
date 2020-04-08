@@ -22,6 +22,9 @@ class HomepageController extends AbstractController
         if (!$this->getUser()){
             return $this->redirectToRoute('app_login');
         }
+        if (in_array("ROLE_COACH", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("admin_overview");
+        }
 
         if (in_array("ROLE_ADVANCED", $this->getUser()->getRoles())) {
             return $this->redirectToRoute("profile_page");
@@ -61,7 +64,6 @@ class HomepageController extends AbstractController
             }
         }
         return $this->render('homepage/index.html.twig', [
-            'controller_name' => 'HomepageController',
             'teams' => $teams,
         ]);
     }

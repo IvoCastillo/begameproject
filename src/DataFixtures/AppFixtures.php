@@ -31,18 +31,14 @@ class AppFixtures extends Fixture
             }
             $manager->persist($question);
         }
-        $team = new Team();
-        $team->setTeamScore(0);
-        $team->setTeamName('awesome');
+
         $user = new User();
         $user->setUserName('Matthijs');
         $user->setScore(0);
         $user->setPassword('$argon2id$v=19$m=65536,t=4,p=1$gX5PSIflZkkzzl9bYxU/lQ$nLkHa6gsIMa1Rtth6ir1TY/eKz/ccJArZIlQnFZABIE');
         $user->setRoles(["ROLE_ADVANCED", "ROLE_COACH", "ROLE_ROOKIE"]);
-        $user->setTeam($team);
         $timer = new Timer();
         $timer->setTimer(new DateTimeImmutable());
-        $manager->persist($team);
         $manager->persist($user);
         $manager->persist($timer);
         $manager->flush();
