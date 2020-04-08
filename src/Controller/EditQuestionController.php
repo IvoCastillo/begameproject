@@ -12,12 +12,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class EditQuestionController extends AbstractController
 {
     /**
-     * @Route("/edit/question/{question}", name="edit_question")
+     * @Route("coach/edit/question/{question}", name="edit_question")
      * @param Question $question
      * @return Response
      */
     public function index(Question $question, Request $request)
     {
+        if (!$this->getUser()){
+            return $this->redirectToRoute('login');
+        }
+
         $form = $this->createForm(AddQuestionType::class, $question);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){

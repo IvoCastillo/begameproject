@@ -6,21 +6,30 @@
 
 
     <button><a href="{{ path('q_rcode') }}">Generate codes!</a></button>
-    <button><a href="{{ path('start_game') }}">Start Game!</a></button>
     <button><a href="{{ path('view_question') }}">View all questions</a></button>
     <button id="startGame"><a href="{{ path('stop_game') }}">Stop Game!</a></button>
 
-
+    <form action="{{ path('start_game') }}" method="post">
+        <input type="radio" name="howLong" value="60" checked> 60min
+        <input type="radio" name="howLong" value="45"> 45min
+        <input type="radio" name="howLong" value="30"> 30min
+        <input type="radio" name="howLong" value="15"> 15min
+        <button type="submit">START GAME</button>
+    </form>
     <ul>
         {% for team in pendejos %}
 
             <li><p><b>{{ team.teamName }}</b></p></li>
             <ul>
                 {% for user in team.user %}
-                    <li> {{ user.username }}</li>
+                    <li><a href="{{ path('userProfile', {user:user.id}) }}">{{ user.username }}</a></li>
                 {% endfor %}
             </ul>
         {% endfor %}
 
     </ul>
+
+    <p id="timer"></p>
+    {% include 'Partials/timer.html.twig' %}
+
 {% endblock %}

@@ -3,6 +3,7 @@
     "id": 22,
     "question": "Hoe gaat het",
     "category": "zfze",
+    "type": "mc",
     "answer": [
       {
         "id": 53,
@@ -30,6 +31,7 @@
     "id": 23,
     "question": "zefzef",
     "category": "zefzfef",
+    "type": "mc",
     "answer": [
       {
         "id": 57,
@@ -57,6 +59,7 @@
     "id": 24,
     "question": "vraag1",
     "category": "hallo",
+    "type": "mc",
     "answer": [
       {
         "id": 61,

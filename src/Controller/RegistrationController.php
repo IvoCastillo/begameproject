@@ -42,7 +42,6 @@ class RegistrationController extends AbstractController
             // Set roles to selected and set score to 0
             $user->setRoles(array($form->get('roles')->getData()));
             $user->setScore(0);
-            $user->setCorrectAnswer(0);
 
             $entityManager = $this->getDoctrine()->getManager();
 

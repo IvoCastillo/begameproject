@@ -3,18 +3,14 @@
 {% block title %}Hello ProfilePageController!{% endblock %}
 
 {% block body %}
-    <h1>{{ userName }} </h1>
-    <h3>{{ teamName }} {{ megazorp }} </h3>
+    <h1>{{ user.userName }} </h1>
+    <h3>{{ user.team.teamName }} {{ user.team.teamscore }} </h3>
     <h3>Your team members</h3>
+
     <ul>
-        {% for member in allMembers %}
-            <li>{{ member.teamIvo }}  :  {{ member.scorez }}</li>
-        {% endfor %}
-    </ul>
-    <h3>High Score</h3>
-    <ul>
-        {% for topScore in topScores %}
-            <li>{{ topScore['teamName'] }} with {{ topScore['teamScore'] }}points</li>
+        {% for user in user.team.user %}
+            <li>{{ user.username }} : {{ user.score }}</li>
+
         {% endfor %}
     </ul>
 
@@ -30,11 +26,15 @@
             </a></button>
     {% endif %}
 
-    {% if not timeDiff %}
+    {% if timeDiffJS %}
         {% if team.isLocked %}
             <p>You are ready to scan!</p>
         {% endif %}
     {% endif %}
+
+
+    <p id="timer"></p>
+    {% include 'Partials/timer.html.twig' %}
 
 
 {% endblock %}

@@ -13,32 +13,45 @@ use Symfony\Component\Routing\Annotation\Route;
 class AddQuestionController extends AbstractController
 {
     /**
-     * @Route("/add/question", name="add_question")
+     * @Route("coach/add/question", name="add_question")
      * @param Request $request
      * @return Response
      */
     public function index(Request $request)
     {
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('login');
+        }
+
         $question = new Question();
-        for ($i = 0; $i<4; $i++){
+        for ($i = 0; $i < 4; $i++) {
             $question->addAnswer(new Answer());
         }
+
+
+        /**
+         * @var Answer $answer
+         **/
+
         $form = $this->createForm(AddQuestionType::class, $question);
         $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $question = $form->getData();
+            foreach ($question->getAnswer() as $answer) {
+                if ($answer->getAnswer() == "") {
+                    $question->removeAnswer($answer);
+                } else {
+                    trim($answer->getAnswer());
+                }
+            }
             $em->persist($question);
             $em->flush();
             return $this->redirectToRoute('view_question');
         }
 
 
-
-
-
         return $this->render('add_question/index.html.twig', [
-            'controller_name' => 'AddQuestionController',
             'form' => $form->createView()
         ]);
     }
