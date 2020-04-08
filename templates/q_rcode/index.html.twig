@@ -5,7 +5,7 @@
 {% block body %}
 
     {% for question in allQuestions %}
-        {% set url = absolute_url(path('timer',
+        {% set url = absolute_url(path('question',
             {question: question.id})) %}
             <img src="{{ qr_code_data_uri(url, { writer: 'svg', size: 150 }) }}" />
     {% endfor %}

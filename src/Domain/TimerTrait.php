@@ -9,6 +9,7 @@ use DateTime;
 
 trait TimerTrait
 {
+
     private function getTimerDiff()
     {
         if ($this->getDoctrine()->getRepository(Timer::class)->findAll()) {

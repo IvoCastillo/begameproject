@@ -1,86 +1,116 @@
 [
   {
-    "id": 22,
-    "question": "Hoe gaat het",
-    "category": "zfze",
-    "type": "mc",
-    "answer": [
-      {
-        "id": 53,
-        "answer": "zefzef",
-        "type": false
-      },
-      {
-        "id": 54,
-        "answer": "zefef",
-        "type": false
-      },
-      {
-        "id": 55,
-        "answer": "zefze",
-        "type": false
-      },
-      {
-        "id": 56,
-        "answer": "zefzef",
-        "type": true
-      }
-    ]
+    "id": 25,
+    "question_id": 7,
+    "answer": "zefzef",
+    "type": 0
   },
   {
-    "id": 23,
-    "question": "zefzef",
-    "category": "zefzfef",
-    "type": "mc",
-    "answer": [
-      {
-        "id": 57,
-        "answer": "zefze",
-        "type": false
-      },
-      {
-        "id": 58,
-        "answer": "zfzeezefefzee",
-        "type": true
-      },
-      {
-        "id": 59,
-        "answer": "zefzeef",
-        "type": false
-      },
-      {
-        "id": 60,
-        "answer": "zefzeee",
-        "type": false
-      }
-    ]
+    "id": 26,
+    "question_id": 7,
+    "answer": "zefef",
+    "type": 0
   },
   {
-    "id": 24,
-    "question": "vraag1",
-    "category": "hallo",
-    "type": "mc",
-    "answer": [
-      {
-        "id": 61,
-        "answer": "een answer",
-        "type": false
-      },
-      {
-        "id": 62,
-        "answer": "ezefe",
-        "type": true
-      },
-      {
-        "id": 63,
-        "answer": "ZFZE",
-        "type": false
-      },
-      {
-        "id": 64,
-        "answer": "fzefzezeze",
-        "type": false
-      }
-    ]
+    "id": 27,
+    "question_id": 7,
+    "answer": "zefze",
+    "type": 0
+  },
+  {
+    "id": 28,
+    "question_id": 7,
+    "answer": "CORRECT",
+    "type": 1
+  },
+  {
+    "id": 29,
+    "question_id": 8,
+    "answer": "zefze",
+    "type": 0
+  },
+  {
+    "id": 30,
+    "question_id": 8,
+    "answer": "zfzeezefefzee",
+    "type": 1
+  },
+  {
+    "id": 31,
+    "question_id": 8,
+    "answer": "zefzeef",
+    "type": 0
+  },
+  {
+    "id": 32,
+    "question_id": 8,
+    "answer": "zefzeee",
+    "type": 0
+  },
+  {
+    "id": 33,
+    "question_id": 9,
+    "answer": "een answer",
+    "type": 0
+  },
+  {
+    "id": 34,
+    "question_id": 9,
+    "answer": "ezefe",
+    "type": 1
+  },
+  {
+    "id": 35,
+    "question_id": 9,
+    "answer": "ZFZE",
+    "type": 0
+  },
+  {
+    "id": 36,
+    "question_id": 9,
+    "answer": "fzefzezeze",
+    "type": 0
+  },
+  {
+    "id": 37,
+    "question_id": 10,
+    "answer": "Answer",
+    "type": 0
+  },
+  {
+    "id": 38,
+    "question_id": 10,
+    "answer": "Answer",
+    "type": 0
+  },
+  {
+    "id": 39,
+    "question_id": 10,
+    "answer": "TAnswer",
+    "type": 1
+  },
+  {
+    "id": 40,
+    "question_id": 10,
+    "answer": "Answer",
+    "type": 0
+  },
+  {
+    "id": 41,
+    "question_id": 11,
+    "answer": "Answer",
+    "type": 0
+  },
+  {
+    "id": 42,
+    "question_id": 11,
+    "answer": "Answer",
+    "type": 0
+  },
+  {
+    "id": 43,
+    "question_id": 12,
+    "answer": "jot",
+    "type": 1
   }
 ]

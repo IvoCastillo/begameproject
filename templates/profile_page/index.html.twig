@@ -26,7 +26,7 @@
             </a></button>
     {% endif %}
 
-    {% if timeDiffJS %}
+    {% if not timeDiffJS.invert %}
         {% if team.isLocked %}
             <p>You are ready to scan!</p>
         {% endif %}

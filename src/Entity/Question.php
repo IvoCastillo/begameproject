@@ -110,13 +110,6 @@ class Question
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUser(): Collection
-    {
-        return $this->wronguser;
-    }
 
     /**
      * @return Collection|UserQuestion[]

@@ -8,6 +8,8 @@
     <button><a href="{{ path('q_rcode') }}">Generate codes!</a></button>
     <button><a href="{{ path('view_question') }}">View all questions</a></button>
     <button id="startGame"><a href="{{ path('stop_game') }}">Stop Game!</a></button>
+    <button id="exportDatabase"><a href="{{ path('export_database') }}">Export database</a></button>
+
 
     <form action="{{ path('start_game') }}" method="post">
         <input type="radio" name="howLong" value="60" checked> 60min
