@@ -43,6 +43,9 @@ class Question
      */
     private $type;
 
+    private static $POINTSPERCORRECT = 10;
+    private static $POINTSPERDONTKNOW = -1;
+    private static $POINTSPERWRONG = -10;
 
     public function __construct()
     {
@@ -142,6 +145,13 @@ class Question
         return $this;
     }
 
+    public function AnswerCheck($user, $team, $question, $points, $iscorrect): UserQuestion {
+        $user->setScore($user->getScore() + $points);
+        $team->setTeamScore($team->getTeamScore() + $points);
+        return new UserQuestion($user, $question, $iscorrect);
+    }
+
+
     public function getType(): ?string
     {
         return $this->type;
@@ -153,6 +163,31 @@ class Question
 
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public static function getPOINTSPERCORRECT(): int
+    {
+        return self::$POINTSPERCORRECT;
+    }
+
+    /**
+     * @return int
+     */
+    public static function getPOINTSPERDONTKNOW(): int
+    {
+        return self::$POINTSPERDONTKNOW;
+    }
+
+    /**
+     * @return int
+     */
+    public static function getPOINTSPERWRONG(): int
+    {
+        return self::$POINTSPERWRONG;
+    }
+
 
 
 

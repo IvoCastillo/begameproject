@@ -29,37 +29,28 @@ class CorrectionController extends AbstractController
         $user = $this->getUser();
         $team = $user->getTeam();
 
-        $POINTSPERCORRECT = 10;
-        $POINTSPERDONTKNOW = -1;
-        $POINTSPERWRONG = -10;
+
         $answer = trim($_POST['chosenAns']);
+
         if ($answer === "giveUp") {
-            $user->setScore($user->getScore() + $POINTSPERDONTKNOW);
-            $team->setTeamScore($team->getTeamScore() + $POINTSPERDONTKNOW);
-            $userQuestion = new UserQuestion($user, $question, false);
+            $userQuestion = $question->AnswerCheck($user, $team, $question, Question::getPOINTSPERDONTKNOW(), false);
         } else {
-            if ($question->getType() === "mc") {
+            if ($question->getType() == "mc") {
                 if ($answer == 1) {
-                    $user->setScore($user->getScore() + $POINTSPERCORRECT);
-                    $team->setTeamScore($team->getTeamScore() + $POINTSPERCORRECT);
-                    $userQuestion = new UserQuestion($user, $question, true);
+                    $userQuestion = $question->AnswerCheck($user, $team, $question, Question::getPOINTSPERCORRECT(), true);
                 } else {
-                    $user->setScore($user->getScore() + $POINTSPERWRONG);
-                    $team->setTeamScore($team->getTeamScore() + $POINTSPERWRONG);
-                    $userQuestion = new UserQuestion($user, $question, false);
+                    $userQuestion = $question->AnswerCheck($user, $team, $question, Question::getPOINTSPERWRONG(), false);
                 }
             } else {
                 if ($answer == $question->getAnswer()[0]->getAnswer()) {
-                    $user->setScore($user->getScore() + $POINTSPERCORRECT);
-                    $team->setTeamScore($team->getTeamScore() + $POINTSPERCORRECT);
-                    $userQuestion = new UserQuestion($user, $question, true);
+                    $userQuestion = $question->AnswerCheck($user, $team, $question, Question::getPOINTSPERCORRECT(), true);
                 } else {
-                    $user->setScore($user->getScore() + $POINTSPERWRONG);
-                    $team->setTeamScore($team->getTeamScore() + $POINTSPERWRONG);
-                    $userQuestion = new UserQuestion($user, $question, false);
+                    $userQuestion = $question->AnswerCheck($user, $team, $question, Question::getPOINTSPERWRONG(), false);
                 }
             }
         }
+
+
         $em->persist($user);
         $em->persist($team);
         $em->persist($userQuestion);
