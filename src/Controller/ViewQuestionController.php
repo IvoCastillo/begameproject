@@ -9,12 +9,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class ViewQuestionController extends AbstractController
 {
     /**
-     * @Route("/view/question", name="view_question")
+     * @Route("/coach/view/question", name="view_question")
      */
     public function index()
     {
         if (!$this->getUser()){
             return $this->redirectToRoute('login');
+        }
+        if (!in_array("ROLE_COACH", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("profile_page");
         }
         $allQuestions = $this->getDoctrine()->getRepository(Question::class)->findAsArray();
 

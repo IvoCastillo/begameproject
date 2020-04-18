@@ -1,0 +1,224 @@
+[
+    {
+        "id": 47,
+        "question": "Hoe gaat het",
+        "category": "zfze",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 160,
+                "answer": "zefzef",
+                "type": false
+            },
+            {
+                "id": 161,
+                "answer": "zefef",
+                "type": false
+            },
+            {
+                "id": 162,
+                "answer": "zefze",
+                "type": false
+            },
+            {
+                "id": 163,
+                "answer": "CORRECT",
+                "type": true
+            }
+        ]
+    },
+    {
+        "id": 48,
+        "question": "zefzef",
+        "category": "zefzfef",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 164,
+                "answer": "zefze",
+                "type": false
+            },
+            {
+                "id": 165,
+                "answer": "zfzeezefefzee",
+                "type": true
+            },
+            {
+                "id": 166,
+                "answer": "zefzeef",
+                "type": false
+            },
+            {
+                "id": 167,
+                "answer": "zefzeee",
+                "type": false
+            }
+        ]
+    },
+    {
+        "id": 49,
+        "question": "vraag1",
+        "category": "hallo",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 168,
+                "answer": "een answer",
+                "type": false
+            },
+            {
+                "id": 169,
+                "answer": "ezefe",
+                "type": true
+            },
+            {
+                "id": 170,
+                "answer": "ZFZE",
+                "type": false
+            },
+            {
+                "id": 171,
+                "answer": "fzefzezeze",
+                "type": false
+            }
+        ]
+    },
+    {
+        "id": 50,
+        "question": "VRAAG",
+        "category": "CATEGORY",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 172,
+                "answer": "Answer",
+                "type": false
+            },
+            {
+                "id": 173,
+                "answer": "Answer",
+                "type": false
+            },
+            {
+                "id": 174,
+                "answer": "TAnswer",
+                "type": true
+            },
+            {
+                "id": 175,
+                "answer": "Answer",
+                "type": false
+            }
+        ]
+    },
+    {
+        "id": 51,
+        "question": "VRAAG",
+        "category": "CATEGORY",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 176,
+                "answer": "Answer",
+                "type": false
+            },
+            {
+                "id": 177,
+                "answer": "Answer",
+                "type": false
+            }
+        ]
+    },
+    {
+        "id": 52,
+        "question": "Trekt m'n haar op de kloten",
+        "category": "Stijl",
+        "type": "open",
+        "answer": [
+            {
+                "id": 178,
+                "answer": "jot",
+                "type": true
+            }
+        ]
+    },
+    {
+        "id": 53,
+        "question": "MATTHIJS",
+        "category": "VRAAGDOORDEDATABASE",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 179,
+                "answer": "VRAAGDOORDEDATABASE",
+                "type": false
+            },
+            {
+                "id": 180,
+                "answer": "VRAAGDOORDEDATABASE",
+                "type": false
+            },
+            {
+                "id": 181,
+                "answer": "VRAAGDOORDEDATABASE",
+                "type": false
+            },
+            {
+                "id": 182,
+                "answer": "VRAAGDOORDEDATABASE",
+                "type": true
+            }
+        ]
+    },
+    {
+        "id": 54,
+        "question": "PERMISSIONPLS",
+        "category": "PERMISSIONPLS",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 183,
+                "answer": "PERMISSIONPLS",
+                "type": false
+            },
+            {
+                "id": 184,
+                "answer": "PERMISSIONPLS",
+                "type": false
+            },
+            {
+                "id": 185,
+                "answer": "PERMISSIONPLS",
+                "type": true
+            },
+            {
+                "id": 186,
+                "answer": "PERMISSIONPLS",
+                "type": false
+            }
+        ]
+    },
+    {
+        "id": 55,
+        "question": "jzeijfz",
+        "category": "izefjzeoifj",
+        "type": "mc",
+        "answer": [
+            {
+                "id": 187,
+                "answer": "erifjeriogj",
+                "type": false
+            },
+            {
+                "id": 188,
+                "answer": "zijgerioj",
+                "type": false
+            },
+            {
+                "id": 189,
+                "answer": "erigjero",
+                "type": false
+            }
+        ]
+    }
+]

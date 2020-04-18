@@ -22,6 +22,9 @@ class AddQuestionController extends AbstractController
         if (!$this->getUser()) {
             return $this->redirectToRoute('login');
         }
+        if (!in_array("ROLE_COACH", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("profile_page");
+        }
 
         $question = new Question();
         for ($i = 0; $i < 4; $i++) {

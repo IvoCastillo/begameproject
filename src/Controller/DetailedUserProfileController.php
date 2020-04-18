@@ -9,10 +9,13 @@ use App\Entity\User;
 class DetailedUserProfileController extends AbstractController
 {
     /**
-     * @Route("/user/{user}", name="userProfile")
+     * @Route("/coach/user/{user}", name="userProfile")
      */
     public function index(User $user)
     {
+        if (!in_array("ROLE_COACH", $this->getUser()->getRoles())) {
+            return $this->redirectToRoute("profile_page");
+        }
         $correctAns = [];
         $wrongAns = [];
         foreach ($user->getUserQuestion() as $question){

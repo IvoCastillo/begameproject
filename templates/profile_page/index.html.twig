@@ -48,7 +48,7 @@
         <h3>Progress</h3>
     </div>
 
-    {% if timeDiffJS %}
+    {% if not timeDiffJS.invert %}
         {% if team.isLocked %}
             <p>You are ready to start the game!</p>
         {% endif %}

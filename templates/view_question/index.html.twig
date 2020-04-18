@@ -4,12 +4,13 @@
 
 {% block body %}
     <button><a href="{{ path('add_question') }}">Add question</a></button>
+    <button id="backToHomepage"><a href="{{ path('admin_overview') }}">Back to overview</a></button>
 
     <ul>
         {% for question in allQuestions %}
             <li>   {{ question.question }}
                 <a href="{{ path('edit_question', {question:question.id}) }}">
-                    Edit Question</a> ,
+                    Edit Question</a>
                 <a href="{{ path('remove_question', {question:question.id}) }}">
                     X</a>
             </li>
