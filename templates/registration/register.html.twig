@@ -4,16 +4,18 @@
 
 {% block body %}
     <h1>Register</h1>
-
+<div class="register-container">
     {{ form_start(registrationForm) }}
     {{ form_row(registrationForm.username) }}
     {{ form_row(registrationForm.roles) }}
     {{ form_errors(registrationForm) }}
     <p id="error"></p>
+    <div>
     <button class="btn">Register</button>
+    </div>
     {{ form_end(registrationForm) }}
 
-
+</div>
     <script>
         (function myFunc() {
             let rookieCheckBox = document.getElementById('registration_form_roles_0');

@@ -3,38 +3,60 @@
 {% block title %}Hello ProfilePageController!{% endblock %}
 
 {% block body %}
-    <h1>{{ user.userName }} </h1>
-    <h3>{{ user.team.teamName }} {{ user.team.teamscore }} </h3>
-    <h3>Your team members</h3>
 
+
+    {% if app.user %}
+        <div class="log-out-section register-container ">
+           {# Welcome {{ app.user.username }},#} <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+    <div class ="profile-container">
+        <h3> welcome to {{ user.team.teamName }}</h3>
+<div    class = "profile-first-section">
+    <div class="user-name">
+    <h2 class=""><ion-icon name="person-outline"></ion-icon>{{ user.userName }} </h2>
+    </div>
+    <div class="score-container">
+
+    <h2>score: {{ user.team.teamscore }}</h2>
+    </div>
+</div>
+
+    <div class="team-members">
+    <h3>Your team members</h3>
     <ul>
         {% for user in user.team.user %}
             <li>{{ user.username }} : {{ user.score }}</li>
-
         {% endfor %}
     </ul>
-
-
+    </div>
+    <div class="btn-lock-team">
     {% if is_granted('ROLE_ADVANCED') %}
-        <button><a href="{{ path('toggle_lock', {team:team.id}) }}">
+        <button class="lock"><a href="{{ path('toggle_lock', {team:team.id}) }}">
 
                 Lock: {% if team.isLocked %}
-                    True
+
+                   locked
                 {% else %}
-                    False
+                     open
                 {% endif %}
             </a></button>
     {% endif %}
+    </div>
+
+    <div class="progress-bar">
+        <h3>Progress</h3>
+    </div>
 
     {% if timeDiffJS %}
         {% if team.isLocked %}
-            <p>You are ready to scan!</p>
+            <p>You are ready to start the game!</p>
         {% endif %}
     {% endif %}
 
 
-    <p id="timer"></p>
+    <p id="timer">time is ticking!</p>
     {% include 'Partials/timer.html.twig' %}
 
-
+</div>
 {% endblock %}

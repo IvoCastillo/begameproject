@@ -1,1 +1,1 @@
-import "./main.css";
+import "../public/build/main.css";

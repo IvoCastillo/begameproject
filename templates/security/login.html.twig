@@ -2,6 +2,8 @@
 
 {% block title %}Log in!{% endblock %}
 
+
+
 {% block body %}
 
 <form method="post">
@@ -9,18 +11,25 @@
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <button><a href="{{ path('app_logout') }}">Logout</a></button>
+    <h1 class="title-login">BeGame</h1>
+    <div class="intro-login-container">
+        <p>Improve your coding skills <br/> with the BeGame quiz</p>
+    </div>
+    <div class="user-login-container">
+        <h2 class="white-title">login</h2>
+        <div class="login">
+
+        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="username" required >
+
         </div>
-    {% endif %}
+        <div class="register-container">
+           <p>No account yet?</p>
+         <a href="{{ path('app_register') }}">register</a>
+        </div>
 
-    <h1 class="title">Welcome  to Begame</h1>
+        <button class="play-btn" type="submit"> PLAY! </button>
 
-
-    <label for="inputUsername">please, sign in</label><br>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="username" required >
-
+    </div>
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
@@ -36,7 +45,6 @@
         </div>
     #}
     <br>
-    <button class="btn" type="submit"> Sign in </button>
-    <button class="btn"  > <a href="{{ path('app_register') }}"> Register here </a> </button>
+
 </form>
 {% endblock %}
