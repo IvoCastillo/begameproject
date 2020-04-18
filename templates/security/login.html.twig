@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
+ {% block stylesheets %}
 
+         <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+         <link rel="stylesheet" href="{{ asset('build/login.css') }}">
+
+ {% endblock %}
 
 
 {% block body %}
@@ -22,7 +27,7 @@
         <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="username" required >
 
         </div>
-        <div class="register-container">
+        <div class="register-container a-link">
            <p>No account yet?</p>
          <a href="{{ path('app_register') }}">register</a>
         </div>

@@ -1,12 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello ProfilePageController!{% endblock %}
+ {% block stylesheets %}
+
+     <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+     <link rel="stylesheet" href="{{ asset('build/profileRookie.css') }}">
+
+ {% endblock %}
 
 {% block body %}
 
 
     {% if app.user %}
-        <div class="log-out-section register-container ">
+        <div class="log-out-section a-link ">
            {# Welcome {{ app.user.username }},#} <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
