@@ -5,18 +5,25 @@
         let timerDiv = document.getElementById('timer');
         function updateClock(){
             s--;
-            if (s == -1){
+            if (s === -1){
                 s = 59;
                 m--;
             }
-            if (s == 0 && m == 0){
+            if(s <10){
+              s=`0${s}`;
+            }
+            if(m<10){
+               m=`0${m}`;
+            }
+            if (s === 0 && m === 0){
+                timerDiv.innerHTML = `0${m}:0${s} remaining`;
                 timerDiv.innerHTML = "TIMES UP";
                 clearInterval(TIMER)
             } else {
-                timerDiv.innerHTML = `${m}m: ${s}s remaining`
+                timerDiv.innerHTML = `${m}:${s} remaining`
             }
         }
         const TIMER = setInterval(updateClock, 1000);
-        timerDiv.innerHTML = `${m}m: ${s}s remaining`
+        timerDiv.innerHTML = `${m}:${s} remaining`
     </script>
 {% endif %}
