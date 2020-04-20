@@ -63,19 +63,20 @@ li{
     width: 100%;
     margin-bottom: 0.3rem;
 }
-li:nth-child(1) {
+li:nth-child(3n+1) {
     background-color: #0E4B83;
 }
 
-li:nth-child(2) {
+li:nth-child(3n+2) {
     background-color: #4169A8;
 }
-li:nth-child(3) {
+li:nth-child(3n+3) {
     background-color: #87b0f8;
 }
 
 .lock, #timer{
-    margin: 10px 0;
+    display: flex;
+    margin: 10px auto;
     background-color:#41A89C ;
     color: whitesmoke;
     padding: 10px;
@@ -83,6 +84,9 @@ li:nth-child(3) {
     letter-spacing: 1px;
     border: 1px  #41A89C  solid;
     font-size: larger;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .lock a{

@@ -7,13 +7,15 @@
  {% endblock %}
 
 {% block body %}
-  <h1>Welcome, to start the game join a team</h1>
+  <h3>Welcome  {{user.username }} </br>Join a team to continue</h3>
 <div class=teams>
     {% for team in teams %}
+        <li class =list>
         {% set form = team['form'].createView %}
         {{ form_start(form)  }}
         {{ team['teamName'] }}
         {{ form_end(form) }}
+        </li>
     {% endfor %}
     {% if teams is empty %}
         <p>There are no teams yet. Be patient, and refresh your browser.</p>

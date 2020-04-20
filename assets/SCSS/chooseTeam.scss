@@ -9,13 +9,9 @@
     justify-content: space-between;
     padding: 0.2rem 0.8rem;
     border-radius: 5px;
-    background-color: #002B63;
-    border: 2px solid #002B63;
-    color: whitesmoke;
-    height: 40px;
-    font-weight: bolder;
     align-items: center;
-    margin-bottom: 0.5rem;
+    height: inherit;
+    align-self: center;
     button{
       background-color: #41A89C;
       border: solid 1px #41A89C;
@@ -24,6 +20,7 @@
       color: whitesmoke;
       font-size: 16px;
       width: 50px;
+      height: auto;
     }
     button:hover{
       background-color: transparent;
@@ -31,5 +28,25 @@
       cursor: pointer;
     }
 
+  }
+li{
+  border-radius: 5px;
+  color: whitesmoke;
+  height: 40px;
+  font-weight: bolder;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  list-style-type: none;
+}
+  li:nth-child(3n+1) {
+    background-color: #0E4B83;
+  }
+
+  li:nth-child(3n+2) {
+    background-color: #4169A8;
+  }
+  li:nth-child(3n+3) {
+    background-color: #87b0f8;
   }
 }
