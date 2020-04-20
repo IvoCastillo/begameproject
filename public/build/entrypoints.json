@@ -35,6 +35,15 @@
       "css": [
         "/build/register.css"
       ]
+    },
+    "chooseTeam": {
+      "js": [
+        "/build/runtime.js",
+        "/build/chooseTeam.js"
+      ],
+      "css": [
+        "/build/chooseTeam.css"
+      ]
     }
   }
 }

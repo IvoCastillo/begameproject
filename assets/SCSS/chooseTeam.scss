@@ -1,0 +1,35 @@
+.teams{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+
+  form{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 0.8rem;
+    border-radius: 5px;
+    background-color: #002B63;
+    border: 2px solid #002B63;
+    color: whitesmoke;
+    height: 40px;
+    font-weight: bolder;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    button{
+      background-color: #41A89C;
+      border: solid 1px #41A89C;
+      padding: 6px;
+      border-radius: 5px;
+      color: whitesmoke;
+      font-size: 16px;
+      width: 50px;
+    }
+    button:hover{
+      background-color: transparent;
+      border: solid 1px #41A89C;
+      cursor: pointer;
+    }
+
+  }
+}
