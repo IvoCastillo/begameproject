@@ -4,6 +4,8 @@
   font-style: normal;
   font-weight: bold;
   color: midnightblue;
+  background-color: transparent;
+
 }
 #error{
 color: midnightblue;
@@ -12,13 +14,14 @@ color: midnightblue;
 .roles{
   display: flex;
   flex-direction: column;
-  background-color: #a7c2e3;
+  background-color: #f8c8bf;
   border-radius: 5px;
   width: 30vh;
   justify-content: center;
   align-content: center;
   margin: 1rem auto;
   color: midnightblue;
+  padding-bottom: 1rem;
   #registration_form_roles{
     display: flex;
     align-items: center;

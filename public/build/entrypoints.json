@@ -44,6 +44,15 @@
       "css": [
         "/build/chooseTeam.css"
       ]
+    },
+    "adminDash": {
+      "js": [
+        "/build/runtime.js",
+        "/build/adminDash.js"
+      ],
+      "css": [
+        "/build/adminDash.css"
+      ]
     }
   }
 }

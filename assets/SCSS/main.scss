@@ -4,8 +4,9 @@
   font-family: "Avenir", sans-serif;
 }
 body{
-  margin-top: 20%;
-  color: midnightblue;
+  margin-top:5%;
+  color: whitesmoke;
+  background-color: #090A25;
 }
 .white-title{
   color: whitesmoke;
@@ -28,12 +29,12 @@ body{
   border: 1px transparent solid;
 }
 .a-link a:hover{
-  border-bottom: 1px solid midnightblue;
-  color: midnightblue;
+  border-bottom: 1px solid whitesmoke;
+  color: whitesmoke;
 }
 a{
   text-decoration: none;
-  color:midnightblue;
+
 }
 a:hover{
   color: whitesmoke;
@@ -71,7 +72,7 @@ input{
 .intro-login-container{
   display: flex;
   font-size: 1rem;
-  background-color: #41A89C;
+  background-color: #e87b4b;
   color: whitesmoke;
   line-height: 25px;
   justify-content: center;
@@ -89,17 +90,29 @@ h1, h3{
   justify-content: space-around;
   align-self: center;
   text-align: center;;
+  color: whitesmoke;
 }
 
 /***play button, also used for scan ***/
 .play-btn{
   margin: 10px 0;
-  background-color: #6241A8;
+  background-color: #3e1f5d;
   color: whitesmoke;
   padding: 10px;
   border-radius: 5px;
   letter-spacing: 1px;
-  border: 1px  #6241A8 solid;
+  border: 1px  #3e1f5d solid;
   font-size: larger;
 }
 
+/***admin dash***/
+.btn-container{
+  display: grid;
+  margin: auto;
+  justify-content: space-evenly;
+  grid-template-columns: fit-content(300px, f);
+a{
+  color:white;
+}
+
+}

@@ -13,8 +13,8 @@
     height: inherit;
     align-self: center;
     button{
-      background-color: #41A89C;
-      border: solid 1px #41A89C;
+      background-color: #e87b4b;
+      border: solid 1px #e87b4b;
       padding: 6px;
       border-radius: 5px;
       color: whitesmoke;
@@ -24,7 +24,7 @@
     }
     button:hover{
       background-color: transparent;
-      border: solid 1px #41A89C;
+      border: solid 1px #e87b4b;
       cursor: pointer;
     }
 
@@ -40,13 +40,13 @@ li{
   list-style-type: none;
 }
   li:nth-child(3n+1) {
-    background-color: #0E4B83;
+    background-color: #3e1f5d;
   }
 
   li:nth-child(3n+2) {
-    background-color: #4169A8;
+    background-color: #795da8;
   }
   li:nth-child(3n+3) {
-    background-color: #87b0f8;
+    background-color: #b8aef8;
   }
 }

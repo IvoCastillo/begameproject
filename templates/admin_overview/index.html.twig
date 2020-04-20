@@ -1,28 +1,48 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello AdminOverviewController!{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/adminDash.css') }}">
+{% endblock %}
 
 {% block body %}
 
-
-    <button><a href="{{ path('q_rcode') }}">Generate codes!</a></button>
-    <button><a href="{{ path('view_question') }}">View all questions</a></button>
-    <button id="startGame"><a href="{{ path('stop_game') }}">Stop Game!</a></button>
-    <button id="exportDatabase"><a href="{{ path('export_database') }}">Export database</a></button>
-
-
+    <h3>Welcome</h3>
+    <div class="container">
+    <div class="btn-container">
+    <button class="play-btn"><a href="{{ path('q_rcode') }}">Generate codes!</a></button>
+    <button class="play-btn"><a href="{{ path('view_question') }}">View all questions</a></button>
+    <button class="play-btn" id="startGame"><a href="{{ path('stop_game') }}">Stop Game!</a></button>
+    <button class="play-btn" id="exportDatabase"><a href="{{ path('export_database') }}">Export database</a></button>
+    </div>
+    <div class="start-game">
     <form action="{{ path('start_game') }}" method="post">
-        <input type="radio" name="howLong" value="60" checked> 60min
-        <input type="radio" name="howLong" value="45"> 45min
-        <input type="radio" name="howLong" value="30"> 30min
-        <input type="radio" name="howLong" value="15"> 15min
-        <button type="submit">START GAME</button>
+        <div class="dial-time">
+            <input type="radio" name="howLong" value="60" checked placeholder="60min">
+            <label for="">60min</label>
+        </div>
+        <div class="dial-time">
+            <input type="radio" name="howLong" value="45">
+            <label for="">45min</label>
+        </div>
+        <div class="dial-time">
+            <input type="radio" name="howLong" value="30">
+            <label for="">30min</label>
+        </div>
+        <div class="dial-time">
+            <input type="radio" name="howLong" value="15">
+            <label for="">15min</label>
+        </div>
+        <button class="start" type="submit">START GAME</button>
     </form>
+    </div>
+    </div>
     <ul>
         {% for team in pendejos %}
 
-            <li><p><b>{{ team.teamName }}</b></p></li>
+
             <ul>
+                <li><p><b>{{ team.teamName }}</b></p></li>
                 {% for user in team.user %}
                     <li><a href="{{ path('userProfile', {user:user.id}) }}">{{ user.username }}</a></li>
                 {% endfor %}

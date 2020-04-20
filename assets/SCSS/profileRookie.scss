@@ -2,11 +2,17 @@
     display: flex;
     justify-content: center;
 }
+body{
+    background-color: whitesmoke;
+    height: 90vh;
+    overflow-y: hidden;
+}
 /****PROFILE PAGE***/
 h3{
     margin: 3vh;
 }
 .profile-container{
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,7 +67,16 @@ li{
     border-radius: 5px;
     padding: 0.5rem 1rem;
     width: 100%;
-    margin-bottom: 0.3rem;
+
+    display: flex;
+
+    justify-content: center;
+
+    justify-self: center;
+
+    align-items: center;
+
+    margin: 0.3rem auto;
 }
 li:nth-child(3n+1) {
     background-color: #0E4B83;
@@ -97,6 +112,9 @@ li:nth-child(3n+3) {
     color: black;
     font-weight: bolder;
     margin-bottom: 4vh;
-    background-color: #74e9d8;
-    border: 1px  #74e9d8  solid;
+    background-color: #e87b4b;
+    border: 1px #e87b4b solid;
+}
+a{
+    color: whitesmoke;
 }
