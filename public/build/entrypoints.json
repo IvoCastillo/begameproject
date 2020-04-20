@@ -26,6 +26,15 @@
       "css": [
         "/build/profileRookie.css"
       ]
+    },
+    "register": {
+      "js": [
+        "/build/runtime.js",
+        "/build/register.js"
+      ],
+      "css": [
+        "/build/register.css"
+      ]
     }
   }
 }

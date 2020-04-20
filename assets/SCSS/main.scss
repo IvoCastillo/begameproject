@@ -47,7 +47,7 @@ button:hover {
 }
 
 input{
-  font-size: larger;
+  font-size: 90%;
   border-radius: 5px;
   border: none;
   margin: 10px;
@@ -55,6 +55,7 @@ input{
   font-weight: lighter;
   font-style: italic;
   background-color: whitesmoke;
+
 }
 
 .input-blue{
@@ -66,6 +67,21 @@ input{
   font-weight: lighter;
   font-style: italic;
   background-color: #a6c5ed;
+}
+.intro-login-container{
+  display: flex;
+  font-size: 1rem;
+  background-color: #41A89C;
+  color: whitesmoke;
+  line-height: 25px;
+  justify-content: center;
+  font-style: italic;
+  font-weight: lighter;
+  border-radius: 10px;
+  width: max-content;
+  margin: 3vh auto;
+  padding: 0.8rem;
+  text-align: center;
 }
 
 h1{

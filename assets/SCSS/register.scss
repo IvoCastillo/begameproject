@@ -1,0 +1,33 @@
+
+.intro-login-container p{
+  padding:  1rem ;
+  font-style: normal;
+  font-weight: bold;
+  color: midnightblue;
+}
+#error{
+color: midnightblue;
+
+}
+.roles{
+  display: flex;
+  flex-direction: column;
+  background-color: #a7c2e3;
+  border-radius: 5px;
+  width: 30vh;
+  justify-content: center;
+  align-content: center;
+  margin: 1rem auto;
+  color: midnightblue;
+  #registration_form_roles{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+#registration_form_randomField{
+  margin: 1rem auto;
+  padding: 0.5rem;
+}

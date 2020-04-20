@@ -14,13 +14,18 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username')
+            ->add('username',TextType::class, [
+                'label' => false,
+                'attr' => array(
+                    'placeholder' => 'Username'
+                    )
+                ])
             // Set various options for the radio buttons
             ->add('roles', ChoiceType::class, [
                 'choices' => [
                     'rookie' => 'ROLE_ROOKIE',
                     'advanced' => 'ROLE_ADVANCED',
-                ],
+                ], 'label'=> false,
                 'choice_label' => function($choice) {
                     // only way to get proper labels on the radio buttons
                     if($choice === 'ROLE_ROOKIE') {
@@ -32,11 +37,15 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'expanded' => true,
                 'multiple' => false,
+
             ])
             ->add('randomField', TextType::class, array(
                 "mapped" => false,
                 "label" => false,
                 "required" => false,
+                'attr' => array(
+                    'placeholder' => 'type name for your team'
+                )
 //                'constraints' => [
 //                    new UniqueEntity([
 //                        'fields' => ['teamName', 'teamName'],

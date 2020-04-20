@@ -5,5 +5,7 @@
   "build/login.js": "/build/login.js",
   "build/profileRookie.css": "/build/profileRookie.css",
   "build/profileRookie.js": "/build/profileRookie.js",
+  "build/register.css": "/build/register.css",
+  "build/register.js": "/build/register.js",
   "build/runtime.js": "/build/runtime.js"
 }

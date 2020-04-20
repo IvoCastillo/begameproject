@@ -1,28 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Log in!{% endblock %}
- {% block stylesheets %}
-         <link rel="stylesheet" href="{{ asset('build/login.css') }}">
- {% endblock %}
 
+{% block stylesheets %}
+         <link rel="stylesheet" href="{{ asset('build/login.css') }}">
+{% endblock %}
 
 {% block body %}
-
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <form method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
     <h1 class="title-login">BeGame</h1>
     <div class="intro-login-container">
         <p>Improve your coding skills <br/> with the BeGame quiz</p>
     </div>
+
     <div class="user-login-container">
         <h2 class="white-title">login</h2>
         <div class="login">
 
         <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="username" required >
-
         </div>
         <div class="register-container a-link">
            <p>No account yet?</p>
@@ -50,4 +49,3 @@
 
 </form>
 {% endblock %}
-{#add block js#}

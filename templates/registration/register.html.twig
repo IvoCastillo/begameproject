@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Register{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/register.css') }}">
+{% endblock %}
 
 {% block body %}
+    <p id="error"></p>
     <h1>Register</h1>
-<div class="register-container">
+
+    <div class="register-container intro-login-container">
     {{ form_start(registrationForm) }}
     {{ form_row(registrationForm.username) }}
+    <div class="roles">
+        <p>what is your role?</p>
     {{ form_row(registrationForm.roles) }}
+    </div>
     {{ form_errors(registrationForm) }}
-    <p id="error"></p>
+    {{ form_row(registrationForm.randomField) }}
     <div>
-    <button class="btn">Register</button>
+        <button class="play-btn">Register</button>
     </div>
     {{ form_end(registrationForm) }}
-
 </div>
     <script>
         (function myFunc() {
