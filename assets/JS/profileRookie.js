@@ -1,0 +1,1 @@
+import "../SCSS/profileRookie.scss"

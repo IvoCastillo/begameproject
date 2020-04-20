@@ -1,0 +1,52 @@
+/******login page******/
+.intro-login-container{
+  display: flex;
+  font-size: 1rem;
+  background-color: #41A89C;
+  color: whitesmoke;
+  line-height: 25px;
+  justify-content: center;
+  font-style: italic;
+  font-weight: lighter;
+  border-radius: 10px;
+  width: max-content;
+  margin: 3vh auto;
+  padding: 0.8rem;
+  text-align: center;
+}
+.user-login-container{
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: #ABC9F8;
+  border-radius: 10px;
+  width: 60%;
+  margin: 2vh auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.play-btn:hover{
+  border: 1px  #6241A8 solid;
+  background-color: transparent;
+  color: midnightblue;
+}
+.register-container{
+  display:inline-flex;
+  align-items:center;
+  justify-content: center;
+  justify-self: center;
+  margin-left: 10px;
+  font-size: 0.8rem;
+}
+
+
+/****REGISTRATION PAGE******/
+.register-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2vh auto;
+  align-content: center;
+}

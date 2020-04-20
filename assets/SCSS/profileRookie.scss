@@ -1,0 +1,97 @@
+.log-out-section{
+    display: flex;
+    justify-content: center;
+}
+/****PROFILE PAGE***/
+h3{
+    margin: 3vh;
+}
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh auto;
+    align-content: center;
+}
+
+.profile-first-section{
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr) );
+    gap: 2rem;
+    justify-content: space-around;
+    width: 90%;
+    justify-items: center;
+}
+.profile-container p{
+    text-align: center;
+    font-weight: lighter;
+    font-style: italic;
+}
+.user-name, .score-container{
+
+    background-color: #2c0e5d;
+    color: whitesmoke;
+    border-radius: 5px;
+    padding:  5px 1rem 5px 1rem;
+    font-size: 70%;
+    text-align: center;
+    width: max-content;
+}
+
+.score-container{
+    background-color:#41A89C ;
+}
+ion-icon{
+    color: cornflowerblue;
+    margin-top: 2px;
+    margin-right: 10px;
+    --ionicon-stroke-width: 50px;
+}
+
+.icon-fill{
+    color: cornflowerblue;
+}
+
+li{
+    list-style-type: none;
+    background-color: midnightblue;
+    color: whitesmoke;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    width: max-content;
+}
+li:nth-child(1) {
+    background-color: #0E4B83;
+}
+
+li:nth-child(2) {
+    background-color: #4169A8;
+}
+li:nth-child(3) {
+    background-color: #ABC9F8;
+}
+
+.lock, #timer{
+    margin: 10px 0;
+    background-color:#41A89C ;
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    border: 1px  #41A89C  solid;
+    font-size: larger;
+}
+
+.lock a{
+    color: whitesmoke;
+}
+
+#timer{
+    color: black;
+    font-weight: bolder;
+    margin-bottom: 4vh;
+    background-color: #74e9d8;
+    border: 1px  #74e9d8  solid;
+}

@@ -1,0 +1,88 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir", sans-serif;
+}
+body{
+  margin-top: 20%;
+  color: midnightblue;
+}
+.white-title{
+  color: whitesmoke;
+  font-size: 1.9rem;
+  font-weight: lighter;
+}
+.btn {
+  margin: 5px;
+  background-color: rgba(201, 198, 255, 0);
+  border: solid 1px #4169A8;
+  padding: 6px;
+  border-radius: 5px;
+  color: #4169A8;
+  font-size: 16px;
+}
+
+.a-link a{
+  margin-left: 5px;
+  font-weight: bolder;
+  border: 1px transparent solid;
+}
+.a-link a:hover{
+  border-bottom: 1px solid midnightblue;
+  color: midnightblue;
+}
+a{
+  text-decoration: none;
+  color:midnightblue;
+}
+a:hover{
+  color: whitesmoke;
+}
+button:hover {
+  cursor: pointer;
+  background: #4169A8;
+  color: whitesmoke;
+  transition: all 0.2s;
+  border: solid 1px #4169A8;
+}
+
+input{
+  font-size: larger;
+  border-radius: 5px;
+  border: none;
+  margin: 10px;
+  padding: 10px;
+  font-weight: lighter;
+  font-style: italic;
+  background-color: whitesmoke;
+}
+
+.input-blue{
+  font-size: larger;
+  border-radius: 5px;
+  border: none;
+  margin: 10px;
+  padding: 10px;
+  font-weight: lighter;
+  font-style: italic;
+  background-color: #a6c5ed;
+}
+
+h1{
+  padding: 2vmax;
+  justify-content: space-around;
+  align-self: center;
+  text-align: center;;
+}
+
+/***play button, also used for scan ***/
+.play-btn{
+  margin: 10px 0;
+  background-color: #6241A8;
+  color: whitesmoke;
+  padding: 10px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  border: 1px  #6241A8 solid;
+  font-size: larger;
+}

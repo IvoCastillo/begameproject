@@ -8,6 +8,24 @@
       "css": [
         "/build/app.css"
       ]
+    },
+    "login": {
+      "js": [
+        "/build/runtime.js",
+        "/build/login.js"
+      ],
+      "css": [
+        "/build/login.css"
+      ]
+    },
+    "profileRookie": {
+      "js": [
+        "/build/runtime.js",
+        "/build/profileRookie.js"
+      ],
+      "css": [
+        "/build/profileRookie.css"
+      ]
     }
   }
 }
