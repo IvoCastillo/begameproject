@@ -19,6 +19,7 @@ class HomepageController extends AbstractController
      */
     public function index(Request $request)
     {
+
         if (!$this->getUser()){
             return $this->redirectToRoute('app_login');
         }
@@ -33,6 +34,7 @@ class HomepageController extends AbstractController
          *  @var Team $team
          */
         $user = $this->getUser();
+
         $allTeams = $this->getDoctrine()->getRepository(Team::class)->findBy(['isLocked' => false]);
         $teams = [];
         foreach ($allTeams as $team) {
@@ -65,6 +67,7 @@ class HomepageController extends AbstractController
         }
         return $this->render('homepage/index.html.twig', [
             'teams' => $teams,
+            'user' => $user,
         ]);
     }
 

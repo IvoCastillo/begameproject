@@ -14,7 +14,7 @@ class JoinTeamType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('submit', SubmitType::class)
+            ->add('join', SubmitType::class)
             ->add('team', HiddenType::class)
         ;
     }

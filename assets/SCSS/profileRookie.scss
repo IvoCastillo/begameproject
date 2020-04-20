@@ -2,11 +2,17 @@
     display: flex;
     justify-content: center;
 }
+body{
+    background-color: whitesmoke;
+    height: 90vh;
+    overflow-y: hidden;
+}
 /****PROFILE PAGE***/
 h3{
     margin: 3vh;
 }
 .profile-container{
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,21 +66,32 @@ li{
     color: whitesmoke;
     border-radius: 5px;
     padding: 0.5rem 1rem;
-    width: max-content;
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    justify-self: center;
+
+    align-items: center;
+
+    margin: 0.3rem auto;
 }
-li:nth-child(1) {
+li:nth-child(3n+1) {
     background-color: #0E4B83;
 }
 
-li:nth-child(2) {
+li:nth-child(3n+2) {
     background-color: #4169A8;
 }
-li:nth-child(3) {
-    background-color: #ABC9F8;
+li:nth-child(3n+3) {
+    background-color: #87b0f8;
 }
 
 .lock, #timer{
-    margin: 10px 0;
+    display: flex;
+    margin: 10px auto;
     background-color:#41A89C ;
     color: whitesmoke;
     padding: 10px;
@@ -82,6 +99,9 @@ li:nth-child(3) {
     letter-spacing: 1px;
     border: 1px  #41A89C  solid;
     font-size: larger;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .lock a{
@@ -92,6 +112,9 @@ li:nth-child(3) {
     color: black;
     font-weight: bolder;
     margin-bottom: 4vh;
-    background-color: #74e9d8;
-    border: 1px  #74e9d8  solid;
+    background-color: #e87b4b;
+    border: 1px #e87b4b solid;
+}
+a{
+    color: whitesmoke;
 }
